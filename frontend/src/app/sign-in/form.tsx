@@ -30,12 +30,12 @@ export default function LoginForm() {
       password: data.password,
     });
     if (!result?.ok) {
-      toast.error("Invalid team name or password");
+      toast.error("Invalid email or password");
       return;
     } else if (result?.ok) {
       toast.success("Login successful");
       setTimeout(() => {
-        router.push("/");
+        router.push("/dashboard");
       }, 1000);
     }
   };
@@ -46,11 +46,11 @@ export default function LoginForm() {
     >
       <BorderedWrapper label="Account details">
         <div className="grid gap-2">
-          <Label>Team name</Label>
+          <Label>Email</Label>
           <FormField
             register={register}
             type="text"
-            placeholder="Team name"
+            placeholder="Email"
             name="email"
             error={errors["email"]}
           />

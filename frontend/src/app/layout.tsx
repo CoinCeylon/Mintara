@@ -8,6 +8,7 @@ import Image from "next/image";
 import hero_background from "@public/hero-background.png";
 import CircuitBackground from "@/components/circuit-background";
 import Footer from "@/components/footer";
+import AuthContextProvider from "@/providers/auth-provider";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
 
@@ -26,21 +27,23 @@ export default function RootLayout({
       <body
         className={`${unbounded.className} font-outfit bg-[#020A09]  text-primary_color px-[24px] lg:px-[40px]`}
       >
-        <MeshWrapper>
-          <Navbar />
-          <CircuitBackground />
-          <Image
-            src={hero_background}
-            layout="fill"
-            quality={100}
-            alt="hero background image"
-            className="z-[-100] hidden md:block  absolute inset-0 mx-auto object-cover"
-          />
+        <AuthContextProvider>
+          <MeshWrapper>
+            <Navbar />
+            <CircuitBackground />
+            <Image
+              src={hero_background}
+              layout="fill"
+              quality={100}
+              alt="hero background image"
+              className="z-[-100] hidden md:block  absolute inset-0 mx-auto object-cover"
+            />
 
-          {children}
-          <Toaster position="top-right" />
-          <Footer />
-        </MeshWrapper>
+            {children}
+            <Toaster position="top-right" />
+            <Footer />
+          </MeshWrapper>
+        </AuthContextProvider>
       </body>
     </html>
   );

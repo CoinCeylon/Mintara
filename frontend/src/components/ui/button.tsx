@@ -54,13 +54,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <span className="absolute inset-0 bg-default-button-start transition-all duration-300 ease-in-out group-hover:bg-default-button-hover-start"></span>
             <span className="absolute inset-0 bg-default-button-gradient opacity-100 transition-opacity duration-300 ease-in-out group-hover:opacity-0"></span>
             <span className="absolute inset-0 bg-default-button-hover-gradient opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></span>
-            <span className="relative z-10">{props.children}</span>
-          </>
-        ) : variant === "nav" ? (
-          <>
-            <span className="absolute inset-0 animate-gradient-x bg-gradient-to-r from-[#FF1C1C] via-[#F9684B] to-[#FF8A00]"></span>
-            <span className="absolute inset-0 animate-gradient-y bg-gradient-to-b from-[#FF1C1C] via-[#F9684B] to-[#5200FF] mix-blend-overlay"></span>
-            <span className="relative z-10">{props.children}</span>
+            <span className="relative z-10 flex flex-row gap-2">
+              {props.children}
+            </span>
           </>
         ) : (
           props.children

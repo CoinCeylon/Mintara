@@ -5,17 +5,18 @@ import { Button } from "@components/ui/button";
 import FormField from "@components/ui/form-field";
 import { Label } from "@components/ui/label";
 import { PasswordInput } from "@components/ui/password-input";
-import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 import { BorderedWrapper } from "@/components/wrapper";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registrationSchema } from "@/lib/schema";
 import { RegistrationFormInputs } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { useWallet } from "@meshsdk/react";
 import toast from "react-hot-toast";
+import { signUpAction } from "@/lib/actions";
+import { signIn, useSession } from "next-auth/react";
 
 export default function RegisterForm() {
   const {
@@ -26,6 +27,7 @@ export default function RegisterForm() {
   } = useForm<RegistrationFormInputs>({
     resolver: zodResolver(registrationSchema),
   });
+  const { data: session } = useSession();
   const { wallet, connected, name, connect, error } = useWallet();
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>("");
@@ -51,15 +53,31 @@ export default function RegisterForm() {
   }, [connected, wallet]);
 
   const router = useRouter();
-  const [isSatisfyRequiredAge, setIsSatisfyRequiredAge] =
-    useState<boolean>(false);
-  const onSubmit = async (data: RegistrationFormInputs) => {
-    console.log(connected, "CONNECTED");
+  const onSubmit = async (data: FieldValues) => {
+    console.log(data, "SIGN UP DATA");
     if (!connected) {
       toast.error("Please connect your wallet first.");
       return;
     }
-    console.log("DATA", data);
+    const response = await signUpAction({
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      wallet: walletAddress,
+    });
+    console.log(response, "SIGN UP RESPONSE");
+    if (response) {
+      if (response.status === "success") {
+        toast.success(response.message);
+        await signIn("credentials", {
+          redirect: false,
+          email: data.email,
+          password: data.password,
+        });
+      } else {
+        toast.error(response.message);
+      }
+    }
   };
   console.log(errors, "ERRORS");
   return (
@@ -89,30 +107,6 @@ export default function RegisterForm() {
           />
         </div>
 
-        <div className="grid gap-2">
-          <Label>Are you 18+?</Label>
-          <RadioGroup
-            defaultValue="no"
-            onValueChange={(value) => {
-              setValue("isSatisfyRequiredAge", value === "yes" ? true : false);
-              if (value === "yes") {
-                setIsSatisfyRequiredAge(true);
-              } else {
-                setIsSatisfyRequiredAge(false);
-              }
-            }}
-            className="flex flex-row"
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="yes" />
-              <Label>Yes</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="no" />
-              <Label>No</Label>
-            </div>
-          </RadioGroup>
-        </div>
         <div className="grid gap-2">
           <Label>Password</Label>
           <PasswordInput

@@ -13,5 +13,11 @@ export type FaqItem = {
   answer: string;
 };
 
+export type Status = {
+  status: "default" | "success" | "error";
+  message: string;
+  data?: object;
+};
+
 export type LogInFormInputs = z.infer<typeof loginSchema>;
 export type RegistrationFormInputs = z.infer<typeof registrationSchema>;
