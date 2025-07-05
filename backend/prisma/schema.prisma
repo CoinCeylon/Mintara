@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String        @id @default(uuid())
+  wallet    String        @unique
+  username  String?
+  email     String        @unique
+  password  String
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  games     GameSession[]
+  items     Item[]
+  nfts      NFT[]
+}
+
+model GameSession {
+  id       String   @id @default(uuid())
+  userId   String
+  score    Int
+  duration Int
+  earnedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Item {
+  id         String   @id @default(uuid())
+  userId     String
+  name       String
+  rarity     Rarity
+  type       ItemType
+  obtainedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model NFT {
+  id          String   @id @default(uuid())
+  userId      String
+  name        String
+  policyId    String
+  assetName   String
+  metadataUrl String
+  mintedAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+enum Rarity {
+  COMMON
+  RARE
+  EPIC
+  LEGENDARY
+}
+
+enum ItemType {
+  WEAPON
+  ARMOR
+  CONSUMABLE
+  ACCESSORY
+  RESOURCE
+}
