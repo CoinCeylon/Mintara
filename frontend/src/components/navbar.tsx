@@ -1,16 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { HamburgerIcon, XIcon } from "lucide-react";
+import { Menu, XIcon } from "lucide-react";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/lib/data";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [hasScrolled, setHasScrolled] = useState<boolean>(false);
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -24,7 +26,9 @@ export default function Navbar() {
     };
   }, []);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    router.push("/sign-up");
+  };
 
   return (
     <nav
@@ -68,8 +72,15 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-              {isOpen ? <XIcon size={24} /> : <HamburgerIcon />}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-primary_color"
+            >
+              {isOpen ? (
+                <XIcon size={24} />
+              ) : (
+                <Menu className="text-primary_color" />
+              )}
             </button>
           </div>
         </div>
@@ -98,7 +109,7 @@ export default function Navbar() {
           <Button
             onClick={handleClick}
             size={"nav"}
-            variant={"nav"}
+            variant={"default"}
             className="group w-full"
           >
             Register

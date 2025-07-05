@@ -3,6 +3,7 @@
 import { useWallet } from "@meshsdk/react";
 import { useState, useEffect } from "react";
 import { Button } from "@components/ui/button";
+import { BorderedWrapper } from "./wrapper";
 
 export default function ConnectWallet() {
   const { wallet, connected, name, connect } = useWallet();
@@ -30,17 +31,22 @@ export default function ConnectWallet() {
   }, [connected, wallet]);
 
   return (
-    <div>
+    <div className="flex flex-col gap-2 items-center justify-center">
       <Button
         className="w-full"
         variant={"default"}
+        disabled={connected}
         onClick={() => connect("lace")}
       >
-        {connected ? "Welcome Back!" : "Connect Lace Wallet"}
+        {connected ? "Connected" : "Connect Lace Wallet"}
       </Button>
-      <p className="text-sm">Address: {walletAddress}</p>
-      <p>Name: {name}</p>
-      <p>Balance: {balance}</p>
+      {connected && (
+        <BorderedWrapper label="Wallet Info">
+          <p className="text-sm">Address: {walletAddress}</p>
+          <p className="text-sm">Name: {name}</p>
+          <p className="text-sm">Balance: {balance}</p>
+        </BorderedWrapper>
+      )}
     </div>
   );
 }
