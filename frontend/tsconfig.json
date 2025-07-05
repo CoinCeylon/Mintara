@@ -21,6 +21,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
+      "@components/ui/*": ["./src/components/ui/*"],
       "@lib/*": ["./src/lib/*"],
       "@providers/*": ["./src/providers/*"],
       "@public/*": ["./public/*"]
