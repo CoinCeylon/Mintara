@@ -7,7 +7,7 @@ export default function Logo() {
     <Link href={"/"}>
       <Image
         src={logo}
-        className="w-[144px] h-[24px] md:w-[234px] md:h-[50px]"
+        className="w-[144px] h-[34px] md:w-[234px] md:h-[50px]"
         alt="Logo"
       />
     </Link>

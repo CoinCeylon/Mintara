@@ -9,9 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      textShadow: {
-        glow: "0px 0px 291.06px #F80, 0px 0px 166.32px #F80, 0px 0px 97.02px #F80, 0px 0px 48.51px #F80, 0px 0px 13.86px #F80, 0px 0px 6.93px #F80",
-      },
       animation: {
         "spin-slow": "spin 20s linear infinite",
         "gradient-x": "gradient-x 15s ease infinite",
@@ -86,7 +83,6 @@ const config: Config = {
           "linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), linear-gradient(180deg, #1D5047 0%, #020C0C 100%)",
         "heading-text-gradient":
           "linear-gradient(90deg, #09302E 0%, #11B55F 50.26%, #09302E 100%);",
-
         "separator-gradient-left":
           "linear-gradient(90deg, #09302E 0%,#11B55F  100%)",
         "separator-gradient-right":
