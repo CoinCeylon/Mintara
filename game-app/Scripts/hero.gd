@@ -14,6 +14,10 @@ var current_state: hero_state = hero_state.MOVE
 
 var input_movement: Vector2 = Vector2.ZERO
 var speed: float = 70.0
+var knockback_velocity: Vector2 = Vector2.ZERO
+
+@export var knockback_decay: float = 800.0
+@export var health: float = 5.0
 
 
 func _ready() -> void:
@@ -21,7 +25,7 @@ func _ready() -> void:
     $Hammer/CollisionShape2D.disabled = true
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
     match current_state:
         hero_state.MOVE:
             move()
@@ -34,6 +38,10 @@ func _physics_process(_delta: float) -> void:
         hero_state.DEAD:
             pass
     
+    knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
+    velocity += knockback_velocity
+    move_and_slide()
+
 
 func move():
     input_movement = Input.get_vector("Left", "Right", "Up", "Down")
