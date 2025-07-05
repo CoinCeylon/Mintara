@@ -18,6 +18,7 @@ var speed: float = 70.0
 
 func _ready() -> void:
     $Sword/CollisionShape2D.disabled = true
+    $Hammer/CollisionShape2D.disabled = true
 
 
 func _physics_process(_delta: float) -> void:

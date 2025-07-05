@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1751719601
+icon.svg::CompressedTexture2D::804246031497565365::1751718495::1751718555::1::::<><>::
+README.md::TextFile::-1::1751718495::0::1::::<><>::
+::res://Assets/::1751719693
+::res://Assets/Background/::1751718555
+spritesheet.png::CompressedTexture2D::5797646620423013637::1751718495::1751718555::1::::<><>::
+::res://Assets/Interactables/::1751719751
+Crate-animated.png::CompressedTexture2D::7832911582214703895::1751719726::1751719754::1::::<><>::
+::res://Assets/Player/::1751719738
+Player-rpg.png::CompressedTexture2D::6615915114383663232::1751718495::1751719754::1::::<><>::
+Player-rpg_hammer.png::CompressedTexture2D::4043706299735742447::1751718495::1751718555::1::::<><>::
+::res://Scenes/::1751718495
+::res://Scenes/Levels/::1751719625
+main_level.tscn::PackedScene::1578333046941693002::1751719625::0::1::::<><>::res://Scripts/player.gd<>uid://bxu2itjgiosqx::::res://Assets/Player/Player-rpg_hammer.png
+::res://Scripts/::1751718495
+player.gd::GDScript::-1::1751719461::0::1::::<>CharacterBody2D<>::

@@ -57,6 +57,14 @@ Jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Hero"
+2d_physics/layer_2="Sword"
+2d_physics/layer_3="Hammer"
+2d_physics/layer_4="Interactables"
+2d_physics/layer_7="HitBox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

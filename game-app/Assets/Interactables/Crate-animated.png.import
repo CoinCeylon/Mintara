@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1i2fjtl5ppci"
-path="res://.godot/imported/Player-rpg.png-0bf530ae71bd0729d96e6ebb0f7613a4.ctex"
+uid="uid://djuk56hlwk5cl"
+path="res://.godot/imported/Crate-animated.png-e9543e34a87231723e18fdfc071d1823.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Player-rpg.png"
-dest_files=["res://.godot/imported/Player-rpg.png-0bf530ae71bd0729d96e6ebb0f7613a4.ctex"]
+source_file="res://Assets/Interactables/Crate-animated.png"
+dest_files=["res://.godot/imported/Crate-animated.png-e9543e34a87231723e18fdfc071d1823.ctex"]
 
 [params]
 

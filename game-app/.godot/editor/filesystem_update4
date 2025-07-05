@@ -1,0 +1,4 @@
+res://Scenes/Levels/main_level.tscn
+res://Scripts/player.gd
+res://Scripts/Interactables/crate.gd
+res://Scenes/Interactables/crate.tscn
