@@ -26,17 +26,19 @@ export class AuthService {
   ) {}
 
   async signUp(signUpDto: SignUpDto) {
-    const { password, email } = signUpDto;
+    const { password, email, wallet, username } = signUpDto;
     const hashedPassword = await getHashedPassword(password);
     if (!hashedPassword) {
       throw new BadRequestException('Cannot hash the given password');
     }
-    const isUserExists = await this.prismaService.user.findUnique({
-      where: { email: email },
+    const isUserExists = await this.prismaService.user.findFirst({
+      where: {
+        OR: [{ email: email }, { username: username }, { wallet: wallet }],
+      },
     });
     if (isUserExists) {
       throw new ConflictException(
-        'The email provided is already in use. Try again with another email',
+        'The email, username or wallet is already registered.',
       );
     }
     const user = await this.prismaService.user.create({

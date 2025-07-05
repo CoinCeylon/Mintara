@@ -8,8 +8,10 @@ import { navItems } from "@/lib/data";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [hasScrolled, setHasScrolled] = useState<boolean>(false);
   const router = useRouter();
@@ -61,14 +63,25 @@ export default function Navbar() {
             ))}
           </div>
 
-          <Button
-            onClick={handleClick}
-            size={"nav"}
-            variant={"default"}
-            className="hidden lg:block"
-          >
-            Register
-          </Button>
+          {session ? (
+            <Button
+              onClick={() => router.push("/dashboard")}
+              size={"nav"}
+              variant={"default"}
+              className="group hidden lg:block"
+            >
+              Dashboard
+            </Button>
+          ) : (
+            <Button
+              onClick={handleClick}
+              size={"nav"}
+              variant={"default"}
+              className="group hidden lg:block"
+            >
+              Register
+            </Button>
+          )}
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
@@ -106,14 +119,25 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Button
-            onClick={handleClick}
-            size={"nav"}
-            variant={"default"}
-            className="group w-full"
-          >
-            Register
-          </Button>
+          {session ? (
+            <Button
+              onClick={() => router.push("/dashboard")}
+              size={"nav"}
+              variant={"default"}
+              className="group hidden lg:block"
+            >
+              Dashboard
+            </Button>
+          ) : (
+            <Button
+              onClick={handleClick}
+              size={"nav"}
+              variant={"default"}
+              className="group hidden lg:block"
+            >
+              Register
+            </Button>
+          )}
         </div>
       </motion.div>
     </nav>

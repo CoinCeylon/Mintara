@@ -4,7 +4,6 @@ export const registrationSchema = z
   .object({
     username: z.string().min(1, { message: "Provide your user name." }),
     email: z.string().min(1, { message: "Provide a valid email." }),
-    isSatisfyRequiredAge: z.boolean(),
     wallet: z.string().optional(),
     password: z
       .string()
