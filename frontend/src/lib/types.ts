@@ -19,5 +19,14 @@ export type Status = {
   data?: object;
 };
 
+export type RewardCatalog = {
+  id: string;
+  name: string;
+  type: string;
+  description: string | null;
+  imageUrl: string;
+  rarity: string;
+};
+
 export type LogInFormInputs = z.infer<typeof loginSchema>;
 export type RegistrationFormInputs = z.infer<typeof registrationSchema>;

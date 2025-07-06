@@ -1,3 +1,16 @@
+## Sample ENV
+
+```
+DATABASE_URL="file:./dev.db"
+PORT=3001
+JWT_SECRET=45ac78fa5c459c2c456a7390b26a8c0b
+ACCESS_TOKEN_VALIDITY_DURATION_IN_SEC=100
+REFRESH_TOKEN_SECRET=45ac78fa5c459c2c456a7390b26a8c0b
+ACCESS_TOKEN_SECRET=45ac78fa5c459c2c456a7390b26a8c0b
+REFRESH_TOKEN_VALIDITY_DURATION_IN_SEC=432000
+NODE_ENV=development
+```
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>

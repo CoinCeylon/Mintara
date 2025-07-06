@@ -87,3 +87,22 @@ export const signUpAction = async (data: FieldValues) => {
     }
   }
 };
+
+//rewards actions
+export const getAllAvailableRewardCatalogs = async () => {
+  try {
+    const response = await axiosPublic.get("/rewards/get-info-all");
+    return {
+      status: "success",
+      data: response.data,
+      message: response.data.message as string,
+    } as Status;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      return {
+        status: "error",
+        message: error.response?.data.message,
+      } as Status;
+    }
+  }
+};

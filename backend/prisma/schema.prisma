@@ -8,37 +8,40 @@ datasource db {
 }
 
 model User {
-  id        String        @id @default(uuid())
-  wallet    String        @unique
-  username  String?
-  email     String        @unique
-  password  String
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-  games     GameSession[]
-  items     Item[]
-  nfts      NFT[]
+  id           String         @id @default(uuid())
+  wallet       String         @unique
+  username     String?
+  email        String         @unique
+  password     String
+  score        Int?
+  experience   Int?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  rewards      Reward[]
+  nfts         NFT[]
+  Notification Notification[]
 }
 
-model GameSession {
-  id       String   @id @default(uuid())
-  userId   String
-  score    Int
-  duration Int
-  earnedAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id])
+model RewardCatalog {
+  id          String  @id @default(uuid())
+  name        String
+  description String?
+  imageUrl    String
+  rarity      String
+  type        String
+  reward      Reward?
 }
 
-model Item {
-  id         String   @id @default(uuid())
-  userId     String
-  name       String
-  rarity     Rarity
-  type       ItemType
-  obtainedAt DateTime @default(now())
+model Reward {
+  id              String   @id @default(uuid())
+  userId          String
+  rewardCatalogId String   @unique
+  name            String
+  obtainedAt      DateTime @default(now())
+  status          String   @default("UNMINTED")
 
-  user User @relation(fields: [userId], references: [id])
+  user          User          @relation(fields: [userId], references: [id])
+  rewardCatalog RewardCatalog @relation(fields: [rewardCatalogId], references: [id])
 }
 
 model NFT {
@@ -53,17 +56,17 @@ model NFT {
   user User @relation(fields: [userId], references: [id])
 }
 
-enum Rarity {
-  COMMON
-  RARE
-  EPIC
-  LEGENDARY
-}
+model Notification {
+  id        String   @id @default(uuid())
+  title     String
+  message   String
+  type      String   @default("info")
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
 
-enum ItemType {
-  WEAPON
-  ARMOR
-  CONSUMABLE
-  ACCESSORY
-  RESOURCE
+  @@index([userId])
 }
