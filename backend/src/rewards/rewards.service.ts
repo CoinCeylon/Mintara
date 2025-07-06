@@ -98,6 +98,11 @@ export class RewardsService {
       });
     }
 
-    return newReward;
+    return await this.prismaService.reward.findFirst({
+      where: {
+        id: newReward.id,
+      },
+      include: { rewardCatalog: true },
+    });
   }
 }
