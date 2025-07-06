@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dp6kdp1ff3jad" path="res://Assets/ProgressBars/healthbarProgress.png" id="2_o5wpb"]
 
 [node name="HealthBar" type="TextureProgressBar"]
+y_sort_enabled = true
 offset_right = 64.0
 offset_bottom = 10.0
 texture_under = ExtResource("1_5wtrv")

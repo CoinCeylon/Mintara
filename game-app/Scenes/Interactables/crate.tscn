@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0pa61ylkuy8m"]
+[gd_scene load_steps=10 format=3 uid="uid://c0pa61ylkuy8m"]
 
 [ext_resource type="Script" path="res://Scripts/Interactables/crate.gd" id="1_f43x1"]
 [ext_resource type="Texture2D" uid="uid://djuk56hlwk5cl" path="res://Assets/Interactables/Crate-animated.png" id="2_y0ku2"]
+[ext_resource type="Texture2D" uid="uid://icn6gp43sieu" path="res://Assets/Interactables/Shadow.png" id="3_gq17w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ymp2"]
 size = Vector2(16, 7)
@@ -145,6 +146,13 @@ script = ExtResource("1_f43x1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_y0ku2")
 hframes = 11
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.0885599, 0.0885599, 0.0885599, 1)
+z_index = -1
+position = Vector2(0, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_gq17w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://quj02yrlb23j"]
+[gd_scene load_steps=56 format=3 uid="uid://quj02yrlb23j"]
 
 [ext_resource type="Texture2D" uid="uid://b5c2n2lalxruk" path="res://Assets/Enemies/Slime.png" id="1_7prua"]
 [ext_resource type="Script" path="res://Scripts/Enemies/slime.gd" id="1_goycc"]
 [ext_resource type="Texture2D" uid="uid://c04cjlgfhb078" path="res://Assets/Enemies/DestroySmoke.png" id="2_uecam"]
+[ext_resource type="Texture2D" uid="uid://0xjeopwyftiy" path="res://Assets/Enemies/Shadow.png" id="3_1iy1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50351"]
 size = Vector2(23, 10)
@@ -1386,6 +1387,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(24, -121)
 
 [node name="Slime" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 8
 collision_mask = 137
 script = ExtResource("1_goycc")
@@ -1397,6 +1399,12 @@ texture = ExtResource("1_7prua")
 hframes = 16
 vframes = 2
 frame = 6
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.388235, 0.0784314, 0.12549, 0.827451)
+z_index = -1
+position = Vector2(0, 6)
+texture = ExtResource("3_1iy1u")
 
 [node name="DestroySmoke" type="Sprite2D" parent="."]
 texture = ExtResource("2_uecam")
