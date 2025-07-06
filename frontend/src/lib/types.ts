@@ -28,5 +28,15 @@ export type RewardCatalog = {
   rarity: string;
 };
 
+export type Reward = {
+  id: string;
+  userId: string;
+  rewardCatalogId: string;
+  name: string;
+  obtainedAt: Date;
+  status: string;
+  rewardCatalog: RewardCatalog;
+};
+
 export type LogInFormInputs = z.infer<typeof loginSchema>;
 export type RegistrationFormInputs = z.infer<typeof registrationSchema>;

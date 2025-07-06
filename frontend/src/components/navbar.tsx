@@ -9,6 +9,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { NotificationDrawer } from "./notification-drawer";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -61,6 +62,7 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+            <NotificationDrawer />
           </div>
 
           {session ? (

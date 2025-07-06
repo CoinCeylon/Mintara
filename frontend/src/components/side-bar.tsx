@@ -6,22 +6,16 @@ import {
   LayoutDashboard,
   PackageSearch,
   ShoppingCart,
-  Settings,
   Gamepad2,
-  Activity,
 } from "lucide-react";
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: Gamepad2, label: "My Inventory", href: "/dashboard/inventory" },
   { icon: PackageSearch, label: "Item Explorer", href: "/dashboard/explorer" },
-  {
-    icon: Activity,
-    label: "Activities",
-    href: "/dashboard/recent-activities",
-  },
+
   { icon: ShoppingCart, label: "Marketplace", href: "/dashboard/marketplace" },
-  { icon: Settings, label: "Settings", href: "/dashboard/settings" },
+  //   { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
 
 export default function Sidebar() {

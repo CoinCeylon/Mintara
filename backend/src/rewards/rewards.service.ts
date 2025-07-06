@@ -43,6 +43,28 @@ export class RewardsService {
     });
   }
 
+  async getRewardByUserId(userId: string) {
+    if (!userId) {
+      throw new BadRequestException('User ID is required');
+    }
+    const userReward = await this.prismaService.reward.findMany({
+      where: {
+        userId: userId,
+      },
+      include: {
+        rewardCatalog: true,
+      },
+    });
+
+    console.log('User Reward:', userReward);
+
+    if (!userReward) {
+      throw new BadRequestException('No rewards found for the user');
+    }
+
+    return userReward;
+  }
+
   async createReward(userId: string) {
     const availableCatalogs = await this.prismaService.rewardCatalog.findMany({
       where: {

@@ -32,4 +32,10 @@ export class RewardsController {
   async claimReward(@Body() claimRewardDto: ClaimRewardDto) {
     return await this.rewardsService.createReward(claimRewardDto.userId);
   }
+
+  @Public()
+  @Get('get-available-rewards-for-user')
+  async getRewardsByUserId(@Query('userId') userId: string) {
+    return await this.rewardsService.getRewardByUserId(userId);
+  }
 }

@@ -14,10 +14,14 @@ import {
   ShoppingCart,
   Sparkles,
   Crown,
+  Check,
+  Copy,
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useWallet } from "@meshsdk/react";
+import { useClipboard } from "use-clipboard-copy";
+import { Input } from "@/components/ui/input";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -27,6 +31,14 @@ export default function DashboardPage() {
     useWallet();
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>("");
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+  const clipboard = useClipboard({
+    copiedTimeout: 2000,
+  });
+  const handleCopy = () => {
+    clipboard.copy(session?.user.id);
+    setIsCopied(true);
+  };
 
   useEffect(() => {
     if (connected && wallet) {
@@ -81,6 +93,30 @@ export default function DashboardPage() {
             </div>
 
             <div className="space-y-2">
+              <div className="flex flex-row justify-start items-center gap-4 w-full">
+                <div>Player ID : </div>
+                <div>
+                  <Input
+                    id="link"
+                    defaultValue={session.user.id}
+                    readOnly
+                    className="min-w-[400px] w-full"
+                  />
+                </div>
+                <Button
+                  variant={"default"}
+                  type="submit"
+                  size="sm"
+                  onClick={handleCopy}
+                >
+                  <span className="sr-only">Copy</span>
+                  {isCopied ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
               <div className="flex justify-between text-sm">
                 <span className="text-green-600">Experience</span>
                 <span className="text-green-400">8,750 / 10,000 XP</span>
