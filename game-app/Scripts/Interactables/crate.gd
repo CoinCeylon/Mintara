@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @export var health: float = 1.0
 @onready var hero = $"../Hero"
+@onready var reward_popup = $"../Popup/RewardPopup"
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
@@ -19,8 +20,26 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func destroy() -> void:
 	$AnimationPlayer.play("Destroyed")
 	await $AnimationPlayer.animation_finished
-	print("Crate destroyed")
+	# print("Crate destroyed")
+
+	send_claim_request()
+
+	await get_tree().create_timer(4.0).timeout
 	queue_free()
+
+
+func send_claim_request() -> void:
+	var request = $HTTPRequest
+	var url = "http://localhost:3001/api/rewards/claim-random-reward"
+	var headers = ["Content-Type: application/json"]
+	var body = JSON.stringify({
+		"userId": "9887e122-43d7-4161-8c22-a40b2180e091"
+	})
+
+	var error = request.request(url, headers, HTTPClient.METHOD_POST, body)
+
+	if error != OK:
+		print("Failed to make request: ", error)
 
 
 func shake() -> void:
@@ -63,3 +82,27 @@ func shake() -> void:
 func throw_hero_away() -> void:
 	var reverse_dir = global_position.direction_to(hero.global_position)
 	hero.knockback_velocity = reverse_dir * 50.0 * health
+
+
+func _on_http_request_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if response_code == 200 or response_code == 201:
+		var response = JSON.parse_string(body.get_string_from_utf8())
+		var reward_name = response["name"]
+		# print("Reward received:", response)
+		show_reward_popup(reward_name)
+	else:
+		print("Failed to claim reward. Response code:", response_code)
+
+
+func show_reward_popup(reward_name: String) -> void:
+	reward_popup.text = "🏆 You claimed: " + reward_name
+	reward_popup.self_modulate.a = 0.0
+	reward_popup.visible = true
+
+	var tween = create_tween()
+	tween.tween_property(reward_popup, "self_modulate:a", 1.0, 0.2) # Fade in
+	tween.tween_interval(2.0)
+	tween.tween_property(reward_popup, "self_modulate:a", 0.0, 0.5) # Fade out
+
+	await tween.finished
+	reward_popup.visible = false

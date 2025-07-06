@@ -1,11 +1,7 @@
 res://Scripts/Interactables/crate.gd
-res://Scripts/hero.gd
-res://Scenes/Levels/main_level.tscn
 res://Scenes/Interactables/crate.tscn
+res://Assets/Day_night_cycle/DayNightCycle.tres
+res://Scenes/Levels/main_level.tscn
+res://Scenes/Intro/intro.tscn
 res://Scenes/Enemies/slime.tscn
 res://Scenes/ProgressBars/health_bar.tscn
-res://Scenes/Intro/intro.tscn
-res://Scripts/Intro/intro.gd
-res://Scenes/Levels/day_night_cycle.gd
-res://Scripts/day_night_cycle/day_night.gdshader
-res://Assets/Day_night_cycle/DayNightCycle.tres

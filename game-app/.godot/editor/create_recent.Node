@@ -1,3 +1,6 @@
+Label
+CanvasLayer
+HTTPRequest
 CanvasModulate
 VideoStreamPlayer
 ColorRect
@@ -10,5 +13,3 @@ Node2D
 AnimationTree
 AnimationPlayer
 CharacterBody2D
-TileMap
-StaticBody2D
