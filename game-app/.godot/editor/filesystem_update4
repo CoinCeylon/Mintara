@@ -4,3 +4,5 @@ res://Scenes/Levels/main_level.tscn
 res://Scenes/Interactables/crate.tscn
 res://Scenes/Enemies/slime.tscn
 res://Scenes/ProgressBars/health_bar.tscn
+res://Scenes/Intro/intro.tscn
+res://Scripts/Intro/intro.gd

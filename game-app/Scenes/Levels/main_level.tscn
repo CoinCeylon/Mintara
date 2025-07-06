@@ -1333,7 +1333,7 @@ states/Sword/position = Vector2(785, 261)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_vnip7")
 states/Walk/position = Vector2(714, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_yjnur"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_5b52e"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_cq7on"), "Idle", "Sword", SubResource("AnimationNodeStateMachineTransition_jc2te"), "Sword", "Idle", SubResource("AnimationNodeStateMachineTransition_lxlqg"), "Walk", "Sword", SubResource("AnimationNodeStateMachineTransition_aogsn"), "Sword", "Walk", SubResource("AnimationNodeStateMachineTransition_4fu1s"), "Idle", "Hammer", SubResource("AnimationNodeStateMachineTransition_idkn2"), "Hammer", "Idle", SubResource("AnimationNodeStateMachineTransition_6fnnv"), "Hammer", "Walk", SubResource("AnimationNodeStateMachineTransition_oofyg"), "Walk", "Hammer", SubResource("AnimationNodeStateMachineTransition_eevi6"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_hvley"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_swn8u"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_qg65w"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_088k8"), "Walk", "Dead", SubResource("AnimationNodeStateMachineTransition_kqcj3"), "Idle", "Dead", SubResource("AnimationNodeStateMachineTransition_225qp"), "Sword", "Dead", SubResource("AnimationNodeStateMachineTransition_y1kb4"), "Hammer", "Dead", SubResource("AnimationNodeStateMachineTransition_smt36")]
-graph_offset = Vector2(18, -137)
+graph_offset = Vector2(37, -93)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a712w"]
 radius = 9.05539
@@ -1830,7 +1830,7 @@ layer_2/tile_data = PackedInt32Array(131070, 65536, 8, 196607, 131072, 6, 131072
 layer_3/name = "Top"
 layer_3/y_sort_enabled = true
 layer_3/z_index = 10
-layer_3/tile_data = PackedInt32Array(-851951, 720896, 1, -786415, 720896, 2, -720879, 720896, 3, -851950, 786432, 1, -851949, 851968, 1, -786413, 851968, 2, -720877, 851968, 3)
+layer_3/tile_data = PackedInt32Array(-851951, 720896, 1, -786415, 720896, 2, -720879, 720896, 3, -851950, 786432, 1, -851949, 851968, 1, -786413, 851968, 2, -720877, 851968, 3, -1245122, 655360, 1610612738, -1245121, 655360, 1610612738, -1245120, 655360, 1610612738, -1245119, 655360, 1610612738, -1245118, 655360, 1610612738, -1245117, 655360, 1610612738, -1245116, 655360, 1610612738, -1245115, 655360, 1610612738, -1245114, 655360, 1610612738, -1245113, 655360, 1610612738, -1245112, 655360, 1610612738, -1245111, 655360, 1610612738, -982978, 655360, 1073741826, -982977, 655360, 1073741826, -982976, 655360, 1073741826, -982975, 655360, 1073741826, -982974, 655360, 1073741826, -982973, 655360, 1073741826, -982972, 655360, 1073741826, -982971, 655360, 1073741826, -982970, 655360, 1073741826, -982969, 655360, 1073741826, -982968, 655360, 1073741826, -982967, 655360, 1073741826, -917431, 655360, 536870914, -851895, 655360, 536870914, -786359, 655360, 536870914, -1310647, 655360, 536870914, -1376183, 655360, 536870914, -1441719, 655360, 536870914, -1179573, 655360, 536870914, -1114037, 655360, 536870914, -1048501, 655360, 536870914, -982965, 655360, 536870914, -1245109, 655360, 536870914, -327610, 786432, 5, -262074, 786432, 6, -196538, 786432, 7, -327609, 851968, 5, -196537, 851968, 7, -327608, 917504, 5, -196536, 917504, 7, -393143, 983040, 4, -196535, 983040, 7, -130999, 983040, 8, -327606, 1048576, 5, -262070, 1048576, 6, -196534, 1048576, 7, -196533, 1114112, 7, -196532, 1179648, 7, 196671, 786432, 1342177285, 262207, 851968, 1342177285, 327743, 917504, 1342177285, 458815, 1048576, 1342177285, 196670, 786432, 1342177286, 458814, 1048576, 1342177286, 196669, 786432, 1342177287, 262205, 851968, 1342177287, 327741, 917504, 1342177287, 393277, 983040, 1342177287, 458813, 1048576, 1342177287, 393276, 983040, 1342177288)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -1848,6 +1848,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Slime4" parent="Enemies" instance=ExtResource("5_7prkk")]
 position = Vector2(733, -373)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
+health = 6
 
 [connection signal="area_entered" from="Hero/HitBox" to="Hero" method="_on_hit_box_area_entered"]
