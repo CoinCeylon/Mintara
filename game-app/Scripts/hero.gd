@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const COLLISION_MASK_WATER: int = 256
+
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
 @onready var health_bar = $HealthBar
@@ -9,6 +11,7 @@ enum hero_state {
 	JUMP,
 	SWORD,
 	HAMMER,
+	DROWNING,
 	DEAD
 }
 var current_state: hero_state = hero_state.MOVE
@@ -32,6 +35,10 @@ func _physics_process(delta: float) -> void:
 	if current_state == hero_state.DEAD:
 		dead()
 		return
+	
+	if current_state == hero_state.DROWNING:
+		drown(delta)
+		return
 
 	match current_state:
 		hero_state.MOVE:
@@ -46,6 +53,9 @@ func _physics_process(delta: float) -> void:
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
 	velocity += knockback_velocity
 	move_and_slide()
+
+	if raycast_for_water() and current_state != hero_state.DROWNING:
+		current_state = hero_state.DROWNING
 
 
 func move():
@@ -120,6 +130,28 @@ func take_damage(amount: float, area: Area2D):
 
 func update_health_bar():
 	health_bar.value = health
+	
+
+func raycast_for_water() -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = global_position
+	query.collide_with_bodies = true
+	query.collision_mask = COLLISION_MASK_WATER
+
+	var result = space_state.intersect_point(query, 1)
+	return result.size() > 0
+
+
+func drown(delta: float):
+	anim_state.travel("Idle")
+	velocity = Vector2.ZERO
+	health -= 0.7 * delta
+	update_health_bar()
+
+	if health <= 0:
+		health = 0
+		current_state = hero_state.DEAD
 
 
 func restart():

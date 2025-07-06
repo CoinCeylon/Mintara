@@ -1,0 +1,6 @@
+res://Assets/Day_night_cycle/DayNightCycle.tres::dd90fed8c9efb9202fc6211d109c1815::1751796678::res://.godot/exported/133200997/export-76e5bd663ce3086088876ecd0c3a51b3-DayNightCycle.res
+res://Scenes/Enemies/slime.tscn::507d26f9bb9d1544656c3e47aad8d9a7::1751799814::res://.godot/exported/133200997/export-19a7583fc495937470471be2d8179d9e-slime.scn
+res://Scenes/Interactables/crate.tscn::abf2c847443631c1723fb2437b53577d::1751799814::res://.godot/exported/133200997/export-3cbd0a27465d4962593b81c7dfd54a3b-crate.scn
+res://Scenes/Intro/intro.tscn::5d4cd2d9e515c4465fc0eee747c11c3d::1751799813::res://.godot/exported/133200997/export-5993a849e90e372dab81598a466798ee-intro.scn
+res://Scenes/Levels/main_level.tscn::94ed37b9c050bf574ab4f93900752a5d::1751799836::res://.godot/exported/133200997/export-0606d60a3640e61e9b6622b738bbc452-main_level.scn
+res://Scenes/ProgressBars/health_bar.tscn::7daec00a8301db4d0c7b9fe1a2c2bbed::1751799814::res://.godot/exported/133200997/export-f46ee1fefd876c3800f0d4b6f53f2e74-health_bar.scn

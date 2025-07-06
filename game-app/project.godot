@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Intro/intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 Sword={
@@ -66,6 +70,7 @@ Jump={
 2d_physics/layer_6="HurtBox"
 2d_physics/layer_7="HitBox"
 2d_physics/layer_8="Walls"
+2d_physics/layer_9="Water"
 
 [rendering]
 
