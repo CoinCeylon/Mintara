@@ -1,29 +1,37 @@
 "use client";
+import Loader from "@/components/loader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { gameItems } from "@/lib/data";
-import { Badge, CheckCircle, Circle, Gem } from "lucide-react";
-import { useState } from "react";
+import { getAllAvailableRewardByUserId } from "@/lib/actions";
+import { Reward, Status } from "@/lib/types";
+import { useQuery } from "@tanstack/react-query";
+import { Badge, Gem } from "lucide-react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function InventoryPage() {
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
-  const toggleItemSelection = (itemId: number) => {
-    setSelectedItems((prev) =>
-      prev.includes(itemId)
-        ? prev.filter((id) => id !== itemId)
-        : [...prev, itemId]
-    );
-  };
+  const { data: session } = useSession();
+
+  console.log("Session data in inventory page:", session);
+
+  const { data, isLoading } = useQuery<Status | undefined>({
+    queryKey: ["available-rewards", session?.user.id],
+    queryFn: () => getAllAvailableRewardByUserId(session?.user.id as string),
+  });
+
+  const availableRewards = (data?.data as Reward[]) ?? [];
+
+  console.log("Data fetched explorer page :", data);
 
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
-      case "Legendary":
+      case "LEGENDARY":
         return "text-yellow-400 border-yellow-400/30 bg-yellow-400/10";
-      case "Epic":
+      case "MYTHIC":
+        return "text-red-400 border-red-400/30 bg-red-400/10";
+      case "EPIC":
         return "text-purple-400 border-purple-400/30 bg-purple-400/10";
-      case "Rare":
-        return "text-blue-400 border-blue-400/30 bg-blue-400/10";
       default:
-        return "text-gray-400 border-gray-400/30 bg-gray-400/10";
+        return "text-green-400 border-green-400/30 bg-green-400/10";
     }
   };
   return (
@@ -33,59 +41,54 @@ export default function InventoryPage() {
           <CardTitle className="text-green-400 flex items-center justify-between">
             <div className="flex items-center">
               <Gem className="w-5 h-5 mr-2" />
-              Claimed Items
+              Obtained Items
             </div>
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {gameItems.map((item) => (
-              <div
-                key={item.id}
-                className={`p-4 rounded-lg border cursor-pointer transition-all ${
-                  selectedItems.includes(item.id)
-                    ? "border-green-500 bg-green-500/10"
-                    : "border-green-500/20 hover:border-green-500/40"
-                }`}
-                onClick={() => toggleItemSelection(item.id)}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="text-2xl">{item.image}</div>
-                  <div className="flex items-center space-x-2">
-                    {item.minted ? (
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                    ) : (
-                      <Circle className="w-4 h-4 text-gray-400" />
-                    )}
-                    <Badge className={getRarityColor(item.rarity)}>
-                      {item.rarity}
-                    </Badge>
-                  </div>
-                </div>
-
-                <h3 className="font-semibold text-green-400 mb-1">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-green-600 mb-2">{item.type}</p>
-
-                <div className="flex items-center justify-between">
-                  <Badge
-                    className={
-                      item.minted
-                        ? "border-green-400 text-green-400"
-                        : "border-yellow-400 text-yellow-400"
-                    }
+        <Loader isLoading={isLoading}>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {availableRewards?.length !== undefined &&
+                availableRewards?.map((item) => (
+                  <div
+                    key={item.id}
+                    className={`p-4 ${getRarityColor(
+                      item.rewardCatalog.rarity
+                    )} rounded-lg border cursor-pointer transition-all`}
                   >
-                    {item.minted ? "Minted" : "Unminted"}
-                  </Badge>
-                  {selectedItems.includes(item.id) && (
-                    <CheckCircle className="w-5 h-5 text-green-400" />
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
+                    <div className="flex items-center justify-between mb-3">
+                      <Image
+                        unoptimized
+                        src={item.rewardCatalog.imageUrl}
+                        alt={item.name}
+                        width={200}
+                        height={200}
+                        className="rounded-md w-full h-full"
+                      />
+                    </div>
+
+                    <h3 className="font-semibold text-green-400 mb-1">
+                      {item.name}
+                    </h3>
+                    <div className="flex gap-2">
+                      <Badge
+                        className={getRarityColor(item.rewardCatalog.rarity)}
+                      >
+                        {item.rewardCatalog.rarity}
+                      </Badge>
+                      <p>{item.rewardCatalog.rarity}</p>
+                    </div>
+                    <p className="text-sm text-green-600 mb-2">
+                      {item.rewardCatalog.type}
+                    </p>
+                    <h3 className="text-sm text-green-400 mb-1">
+                      {item.rewardCatalog.description}
+                    </h3>
+                  </div>
+                ))}
+            </div>
+          </CardContent>
+        </Loader>
       </Card>
     </div>
   );

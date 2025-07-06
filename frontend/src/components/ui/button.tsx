@@ -20,7 +20,7 @@ const buttonVariants = cva(
         nav: "text-white relative overflow-hidden",
       },
       size: {
-        default: "h-[53px] max-w-[560px] rounded-[4px] px-[8px] py-[16px]",
+        default: "h-[53px] w-full rounded-[4px] px-[8px] py-[16px]",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",

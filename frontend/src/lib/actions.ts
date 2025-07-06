@@ -1,7 +1,10 @@
+"use server";
 import { axiosPublic } from "./axios";
 import { isAxiosError } from "axios";
 import { Status } from "./types";
 import { FieldValues } from "react-hook-form";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth-options";
 
 //auth actions
 export const loginAction = async (data: FieldValues) => {
@@ -106,3 +109,98 @@ export const getAllAvailableRewardCatalogs = async () => {
     }
   }
 };
+
+export const getAllAvailableRewardByUserId = async (userId: string) => {
+  try {
+    const response = await axiosPublic.get(
+      `/rewards/get-available-rewards-for-user?userId=${userId}`
+    );
+    return {
+      status: "success",
+      data: response.data,
+      message: response.data.message as string,
+    } as Status;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      return {
+        status: "error",
+        message: error.response?.data.message,
+      } as Status;
+    }
+  }
+};
+
+//notification actions
+export async function getNotifications() {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      throw new Error("Unauthorized");
+    }
+
+    const response = await axiosPublic.get(
+      `/notifications/get-all?userId=${session.user.id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+          Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+        },
+      }
+    );
+
+    console.log("API Response:", response.data);
+    return { notifications: response.data };
+  } catch (error) {
+    console.error("Error fetching notifications:", error);
+    return { notifications: [] };
+  }
+}
+export async function markNotificationAsRead(id: string) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      throw new Error("Unauthorized");
+    }
+
+    const response = await axiosPublic.post(
+      `/notifications/mark-read?id=${id}&userId=${session.user.id}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+          Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+        },
+      }
+    );
+
+    return { notification: response.data };
+  } catch (error) {
+    console.error("Error marking notification as read:", error);
+    throw new Error("Failed to mark notification as read");
+  }
+}
+
+export async function markAllNotificationsAsRead() {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      throw new Error("Unauthorized");
+    }
+
+    await axiosPublic.post(
+      `/notifications/mark-all-read?userId=${session.user.id}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+          Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+        },
+      }
+    );
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error marking all notifications as read:", error);
+    throw new Error("Failed to mark all notifications as read");
+  }
+}
