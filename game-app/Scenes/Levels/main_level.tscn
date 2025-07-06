@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://wqs6dm2sq30i"]
+[gd_scene load_steps=88 format=3 uid="uid://wqs6dm2sq30i"]
 
 [ext_resource type="Script" path="res://Scripts/hero.gd" id="1_h0pth"]
 [ext_resource type="Texture2D" uid="uid://bxu2itjgiosqx" path="res://Assets/Hero/Player-rpg_hammer.png" id="2_2cc6j"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c0pa61ylkuy8m" path="res://Scenes/Interactables/crate.tscn" id="3_sdevd"]
 [ext_resource type="Texture2D" uid="uid://couonmcjswrvh" path="res://Assets/Background/spritesheet.png" id="4_5kn2h"]
 [ext_resource type="PackedScene" uid="uid://quj02yrlb23j" path="res://Scenes/Enemies/slime.tscn" id="5_7prkk"]
+[ext_resource type="Script" path="res://Scenes/Levels/day_night_cycle.gd" id="9_fr572"]
+[ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://Assets/Day_night_cycle/DayNightCycle.tres" id="9_yylsy"]
 
 [sub_resource type="Animation" id="Animation_e7ema"]
 resource_name = "Dead"
@@ -1850,5 +1852,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(733, -373)
 scale = Vector2(0.8, 0.8)
 health = 6
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.282353, 0.270588, 0.419608, 1)
+script = ExtResource("9_fr572")
+gradient = ExtResource("9_yylsy")
 
 [connection signal="area_entered" from="Hero/HitBox" to="Hero" method="_on_hit_box_area_entered"]
