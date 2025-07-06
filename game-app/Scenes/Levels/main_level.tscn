@@ -1,9 +1,10 @@
-[gd_scene load_steps=73 format=3 uid="uid://wqs6dm2sq30i"]
+[gd_scene load_steps=74 format=3 uid="uid://wqs6dm2sq30i"]
 
 [ext_resource type="Script" path="res://Scripts/hero.gd" id="1_h0pth"]
 [ext_resource type="Texture2D" uid="uid://bxu2itjgiosqx" path="res://Assets/Hero/Player-rpg_hammer.png" id="2_2cc6j"]
 [ext_resource type="PackedScene" uid="uid://c0pa61ylkuy8m" path="res://Scenes/Interactables/crate.tscn" id="3_sdevd"]
 [ext_resource type="Texture2D" uid="uid://couonmcjswrvh" path="res://Assets/Background/spritesheet.png" id="4_5kn2h"]
+[ext_resource type="PackedScene" uid="uid://quj02yrlb23j" path="res://Scenes/Enemies/slime.tscn" id="5_7prkk"]
 
 [sub_resource type="Animation" id="Animation_e7ema"]
 resource_name = "Dead"
@@ -1730,3 +1731,21 @@ layer_2/tile_data = PackedInt32Array(131070, 65536, 8, 196607, 131072, 6, 131072
 layer_3/name = "Top"
 layer_3/modulate = Color(1, 0.403922, 1, 1)
 layer_3/tile_data = PackedInt32Array(-851951, 720896, 1, -786415, 720896, 2, -720879, 720896, 3, -851950, 786432, 1, -851949, 851968, 1, -786413, 851968, 2, -720877, 851968, 3, -1179606, 458752, 1, -1114070, 458752, 2, -1179605, 524288, 1, -1114069, 524288, 2, -1507281, 458752, 1, -1441745, 458752, 2, -1507280, 524288, 1, -1441744, 524288, 2, -917452, 458752, 1, -851916, 458752, 2, -917451, 524288, 1, -851915, 524288, 2)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Slime" parent="Enemies" instance=ExtResource("5_7prkk")]
+position = Vector2(227, -63)
+scale = Vector2(0.5, 0.5)
+
+[node name="Slime2" parent="Enemies" instance=ExtResource("5_7prkk")]
+position = Vector2(346, -234)
+scale = Vector2(0.5, 0.5)
+
+[node name="Slime3" parent="Enemies" instance=ExtResource("5_7prkk")]
+position = Vector2(57, -316)
+scale = Vector2(0.5, 0.5)
+
+[node name="Slime4" parent="Enemies" instance=ExtResource("5_7prkk")]
+position = Vector2(733, -373)
+scale = Vector2(0.5, 0.5)

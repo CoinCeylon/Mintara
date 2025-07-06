@@ -63,6 +63,7 @@ Jump={
 2d_physics/layer_2="Sword"
 2d_physics/layer_3="Hammer"
 2d_physics/layer_4="Interactables"
+2d_physics/layer_6="HurtBox"
 2d_physics/layer_7="HitBox"
 2d_physics/layer_8="Walls"
 

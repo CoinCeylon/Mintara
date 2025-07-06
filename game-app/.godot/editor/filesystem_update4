@@ -1,4 +1,7 @@
+res://Scenes/Enemies/orc.tscn
+res://Scenes/Enemies/slime.tscn
+res://Scripts/Enemies/slime.gd
+res://Scripts/hero.gd
 res://Scenes/Levels/main_level.tscn
 res://Scenes/Interactables/crate.tscn
 res://Scripts/Interactables/crate.gd
-res://Scripts/hero.gd
