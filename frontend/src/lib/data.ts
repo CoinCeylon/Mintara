@@ -1,4 +1,5 @@
 import { FaqItem, NavItem } from "@lib/types";
+import { Gem, Shield, Sparkles, Star, Trophy } from "lucide-react";
 
 export const navItems: NavItem[] = [
   { name: "Timeline", href: "/#timeline" },
@@ -42,5 +43,94 @@ export const faqItem: FaqItem[] = [
     question: "Can I trade my minted NFTs?",
     answer:
       "Yes! Once you mint an in-game item as an NFT, it's stored in your wallet and can be traded or sold on any Cardano NFT marketplace, such as JPG Store.",
+  },
+];
+
+export const gameItems = [
+  {
+    id: 1,
+    name: "Quantum Blade",
+    type: "Weapon",
+    rarity: "Legendary",
+    minted: true,
+    image: "⚔️",
+  },
+  {
+    id: 2,
+    name: "Neural Shield",
+    type: "Armor",
+    rarity: "Epic",
+    minted: false,
+    image: "🛡️",
+  },
+  {
+    id: 3,
+    name: "Cyber Helmet",
+    type: "Armor",
+    rarity: "Rare",
+    minted: true,
+    image: "⛑️",
+  },
+  {
+    id: 4,
+    name: "Data Crystal",
+    type: "Resource",
+    rarity: "Common",
+    minted: false,
+    image: "💎",
+  },
+  {
+    id: 5,
+    name: "Plasma Rifle",
+    type: "Weapon",
+    rarity: "Epic",
+    minted: true,
+    image: "🔫",
+  },
+  {
+    id: 6,
+    name: "Nano Boots",
+    type: "Armor",
+    rarity: "Rare",
+    minted: false,
+    image: "👢",
+  },
+];
+
+export const recentActivity = [
+  {
+    id: 1,
+    action: "Completed Quest: Digital Heist",
+    reward: "+500 XP",
+    time: "2 hours ago",
+    icon: Trophy,
+  },
+  {
+    id: 2,
+    action: "Minted Quantum Blade NFT",
+    reward: "+0.5 ADA",
+    time: "4 hours ago",
+    icon: Sparkles,
+  },
+  {
+    id: 3,
+    action: "Defeated Cyber Dragon",
+    reward: "+1000 XP",
+    time: "6 hours ago",
+    icon: Shield,
+  },
+  {
+    id: 4,
+    action: "Found Data Crystal",
+    reward: "+250 XP",
+    time: "8 hours ago",
+    icon: Gem,
+  },
+  {
+    id: 5,
+    action: "Joined Guild: Neo Hackers",
+    reward: "+100 XP",
+    time: "1 day ago",
+    icon: Star,
   },
 ];

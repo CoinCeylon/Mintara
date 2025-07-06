@@ -16,6 +16,8 @@ import { User } from '@prisma/client';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
+import { NotificationsService } from 'src/notifications/notifications.service';
+import { NotificationType } from 'src/notifications/dto/create-notification.dto';
 
 @Injectable()
 export class AuthService {
@@ -23,6 +25,7 @@ export class AuthService {
     private readonly prismaService: PrismaService,
     private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
+    private readonly notificationsService: NotificationsService,
   ) {}
 
   async signUp(signUpDto: SignUpDto) {
@@ -44,6 +47,14 @@ export class AuthService {
     const user = await this.prismaService.user.create({
       data: { ...signUpDto, password: hashedPassword },
     });
+    if (user) {
+      await this.notificationsService.create({
+        userId: user.id,
+        title: `Welcome to Mintara, ${user.username}!`,
+        message: `Thank you for signing up. You can now start your epic battle journey.`,
+        type: NotificationType.SUCCESS,
+      });
+    }
     if (!user) {
       throw new BadRequestException(
         'Error occurred while creating your account.Try again later.',
