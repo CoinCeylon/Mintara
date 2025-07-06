@@ -74,6 +74,7 @@ export default function RegisterForm() {
           email: data.email,
           password: data.password,
         });
+        router.push("/dashboard");
       } else {
         toast.error(response.message);
       }
