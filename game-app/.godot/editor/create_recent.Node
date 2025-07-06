@@ -1,9 +1,10 @@
+CollisionShape2D
+Area2D
+TextureProgressBar
 Node2D
 AnimationTree
 Sprite2D
 AnimationPlayer
-CollisionShape2D
-Area2D
 CharacterBody2D
 TileMap
 StaticBody2D

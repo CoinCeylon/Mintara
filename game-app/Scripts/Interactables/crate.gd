@@ -19,6 +19,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func destroy() -> void:
 	$AnimationPlayer.play("Destroyed")
 	await $AnimationPlayer.animation_finished
+	print("Crate destroyed")
 	queue_free()
 
 
