@@ -7,6 +7,14 @@ NEXTAUTH_URL="http://localhost:3000"
 FRONTEND_URL="http://localhost:3000"
 ```
 
+## To run in localhost
+
+```
+npm install
+
+npm run dev
+```
+
 ## Getting Started
 
 First, run the development server:
