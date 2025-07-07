@@ -40,3 +40,22 @@ export type Reward = {
 
 export type LogInFormInputs = z.infer<typeof loginSchema>;
 export type RegistrationFormInputs = z.infer<typeof registrationSchema>;
+
+export type MetaDataResponse = {
+  policyId: string;
+  assetName: string;
+  metadata: {
+    "721": {
+      [policyId: string]: {
+        [assetName: string]: {
+          name: string;
+          image: string;
+          rarity: string;
+          type: string;
+          description: string;
+        };
+      };
+    };
+  };
+  compiledScript: string;
+};

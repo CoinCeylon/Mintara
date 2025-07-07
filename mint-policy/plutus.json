@@ -1,0 +1,144 @@
+{
+  "preamble": {
+    "title": "aiken-lang/mint-policy",
+    "description": "Aiken contracts for project 'aiken-lang/mint-policy'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.17+c3a7fba"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "nft_policy.nft_policy.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/nft_policy~1MintingAction"
+        }
+      },
+      "parameters": [
+        {
+          "title": "owner_pkh",
+          "schema": {
+            "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+          }
+        }
+      ],
+      "compiledCode": "590388010100229800aba2aba1aba0aab9faab9eaab9dab9a9bae0024888888896600264653001300900198049805000cdc3a400130090024888966002600460126ea800e266446644b30013006001899191919912cc004c05c00e264b3001300c30133754003132323298009bae301a001980d800cdd7180d001cdd7180d00124444b3001301f003899198008009bac301f0042259800800c046264646644b300130250038998030031812802c590221bae3022001375c604400460440026eb0c08000501e45901c0c068004c064004c050dd5000c59012180b0024590141bae3014001375c602800660280026026002601c6ea80222b30013003001899192cc004c05000a0091640446eb8c048004c038dd500445900c201819800911919800800801912cc00400629422b30013003375c602600314a313300200230140014038808a4602060226022602260226022602260226022003230103011301130113011001911192cc004c014c03cdd5000c5200089bad3013301037540028070c966002600a601e6ea8006298103d87a8000899198008009bab30143011375400444b30010018a6103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003301630140024bd7045300103d87a80004049133004004301800340486eb8c048004c054005013201c32330010010042259800800c5300103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003301530130024bd7045300103d87a80004045133004004301700340446eb8c044004c05000501224444b30013008300f3754015132329800980a800cdd7180a980b000c8c02cdc6800c8966002003148002266e0120023300200230180014055375c602a004911112cc004c8c8cc8966002b300198009803800d28528a032899b89371a0029032452820328acc004cdc49b8d375c603c006907403c56600330013007375c603c0054a14a280ca266e24cc018018dd6180f180f8012405114a080ca294101945282032301d001375c60380046038002602e6ea80162b30013300b37586014602e6ea80388cdc780080ac4c03260026eacc024c05cdd50074036002804229410154528202a180a80098081baa00a8acc004cc010dd6180198081baa00723371e00201d13370f30013756600460206ea801e00d375c602660206ea80290012400314a0807100e0c02cdd50031bae300d300a37540066e1d20028b2010180480098021baa0098a4d1365640081",
+      "hash": "08323bc27047645154898625f5aec2e95b04332af582ff59d74172f4"
+    },
+    {
+      "title": "nft_policy.nft_policy.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "parameters": [
+        {
+          "title": "owner_pkh",
+          "schema": {
+            "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+          }
+        }
+      ],
+      "compiledCode": "590388010100229800aba2aba1aba0aab9faab9eaab9dab9a9bae0024888888896600264653001300900198049805000cdc3a400130090024888966002600460126ea800e266446644b30013006001899191919912cc004c05c00e264b3001300c30133754003132323298009bae301a001980d800cdd7180d001cdd7180d00124444b3001301f003899198008009bac301f0042259800800c046264646644b300130250038998030031812802c590221bae3022001375c604400460440026eb0c08000501e45901c0c068004c064004c050dd5000c59012180b0024590141bae3014001375c602800660280026026002601c6ea80222b30013003001899192cc004c05000a0091640446eb8c048004c038dd500445900c201819800911919800800801912cc00400629422b30013003375c602600314a313300200230140014038808a4602060226022602260226022602260226022003230103011301130113011001911192cc004c014c03cdd5000c5200089bad3013301037540028070c966002600a601e6ea8006298103d87a8000899198008009bab30143011375400444b30010018a6103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003301630140024bd7045300103d87a80004049133004004301800340486eb8c048004c054005013201c32330010010042259800800c5300103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003301530130024bd7045300103d87a80004045133004004301700340446eb8c044004c05000501224444b30013008300f3754015132329800980a800cdd7180a980b000c8c02cdc6800c8966002003148002266e0120023300200230180014055375c602a004911112cc004c8c8cc8966002b300198009803800d28528a032899b89371a0029032452820328acc004cdc49b8d375c603c006907403c56600330013007375c603c0054a14a280ca266e24cc018018dd6180f180f8012405114a080ca294101945282032301d001375c60380046038002602e6ea80162b30013300b37586014602e6ea80388cdc780080ac4c03260026eacc024c05cdd50074036002804229410154528202a180a80098081baa00a8acc004cc010dd6180198081baa00723371e00201d13370f30013756600460206ea801e00d375c602660206ea80290012400314a0807100e0c02cdd50031bae300d300a37540066e1d20028b2010180480098021baa0098a4d1365640081",
+      "hash": "08323bc27047645154898625f5aec2e95b04332af582ff59d74172f4"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "List$Tuple$ByteArray_ByteArray": {
+      "dataType": "list",
+      "items": {
+        "$ref": "#/definitions/Tuple$ByteArray_ByteArray"
+      }
+    },
+    "Tuple$ByteArray_ByteArray": {
+      "title": "Tuple",
+      "dataType": "list",
+      "items": [
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/ByteArray"
+        }
+      ]
+    },
+    "aiken/crypto/VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "cardano/assets/AssetName": {
+      "title": "AssetName",
+      "dataType": "bytes"
+    },
+    "nft_policy/MintingAction": {
+      "title": "MintingAction",
+      "anyOf": [
+        {
+          "title": "MintNFT",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "token_name",
+              "$ref": "#/definitions/cardano~1assets~1AssetName"
+            },
+            {
+              "title": "metadata",
+              "$ref": "#/definitions/nft_policy~1NFTMetadata"
+            },
+            {
+              "title": "owner",
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            }
+          ]
+        },
+        {
+          "title": "BurnNFT",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "title": "token_name",
+              "$ref": "#/definitions/cardano~1assets~1AssetName"
+            }
+          ]
+        }
+      ]
+    },
+    "nft_policy/NFTMetadata": {
+      "title": "NFTMetadata",
+      "anyOf": [
+        {
+          "title": "NFTMetadata",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "name",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "description",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "image",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "attributes",
+              "$ref": "#/definitions/List$Tuple$ByteArray_ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
