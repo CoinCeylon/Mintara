@@ -1,7 +1,8 @@
 res://Scripts/Interactables/crate.gd
-res://Scenes/Interactables/crate.tscn
-res://Assets/Day_night_cycle/DayNightCycle.tres
 res://Scenes/Levels/main_level.tscn
+res://Assets/Day_night_cycle/DayNightCycle.tres
 res://Scenes/Intro/intro.tscn
+res://Scenes/Interactables/crate.tscn
 res://Scenes/Enemies/slime.tscn
 res://Scenes/ProgressBars/health_bar.tscn
+res://Scenes/Menu/main_menu.tscn

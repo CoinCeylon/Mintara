@@ -33,7 +33,8 @@ func send_claim_request() -> void:
 	var url = "http://localhost:3001/api/rewards/claim-random-reward"
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({
-		"userId": "9887e122-43d7-4161-8c22-a40b2180e091"
+		# "userId": "9887e122-43d7-4161-8c22-a40b2180e091"
+		"userId": "bd796c58-4184-4d07-b28e-f53baafd3dd9"
 	})
 
 	var error = request.request(url, headers, HTTPClient.METHOD_POST, body)
