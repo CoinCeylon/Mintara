@@ -53,7 +53,7 @@ export default function ExplorerPage() {
                   <div className="flex items-center justify-between mb-3">
                     <Image
                       unoptimized
-                      src={item.imageUrl}
+                      src={`https://gateway.pinata.cloud/ipfs/${item.imageUrl}`}
                       alt={item.name}
                       width={200}
                       height={200}

@@ -5,121 +5,94 @@ async function main() {
   console.log('Seeding RewardCatalog...');
 
   const rewards = [
-    // Legendary Items (Yellow background)
     {
       name: 'Shield of the Ancients',
-      description:
-        'A mystical shield with ancient runes that provides unmatched protection',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783940/legendary-2_l3yqae.png',
+      description: 'Runed shield of great defense',
+      imageUrl: 'bafybeiem6vqvjo3iieyyv3tqkjhtykpmcz3arijarrj7sn2xpgrvtqrnnq',
       rarity: 'LEGENDARY',
       type: 'ARMOR',
     },
     {
       name: 'Sword of Valor',
-      description:
-        'A mystical sword with ancient runes that provides unmatched protection',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783940/legendary-1_rro0hd.png',
+      description: 'Ancient sword of heroic valor',
+      imageUrl: 'bafybeiezxybs5fb4mtvdmnup6ofp3xf3rq47zu4s3zrpmrga5qsr53cmdi',
       rarity: 'LEGENDARY',
       type: 'WEAPON',
     },
-
-    // Mythic Items (Pinkish purple background)
     {
       name: 'War Helmet',
-      description:
-        'A legendary helmet worn by ancient warriors, grants enhanced battle prowess',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783940/mythic-1_aoed31.png',
+      description: 'Worn by elite ancient warriors',
+      imageUrl: 'bafybeievntw5lhv2ujurdas443p3e3m5bd2arashd6wg5moxiom2d2ehfu',
       rarity: 'MYTHIC',
       type: 'ARMOR',
     },
     {
       name: 'Elixir of Power',
-      description:
-        'Enchanted elixir that boosts strength and agility for a short duration',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751800960/mythic-2_rptlmx.png',
+      description: 'Boosts strength for a short time',
+      imageUrl: 'bafybeifa2avmpdtu3f44xtkscypj3edhclnb4ii6wulaq6ityrlav54ija',
       rarity: 'MYTHIC',
       type: 'ARMOR',
     },
-
-    // Epic Items (Purple background)
     {
       name: 'Epic Gladiator Sword',
-      description:
-        'A masterfully crafted sword with a gleaming blade, favored by champions',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783931/epic-1_ad1f7p.png',
+      description: 'Blade favored by champions',
+      imageUrl: 'bafybeifvzqh6hwmzbpgjqm26conqcq7mdtdpwghtrizqtnoibyycdkt2pa',
       rarity: 'EPIC',
       type: 'WEAPON',
     },
     {
       name: 'Enchanted Coin Pouch',
-      description: 'A magical pouch that occasionally generates extra coins',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783934/epic-3_z1iho5.png',
+      description: 'Magical pouch that drops coins',
+      imageUrl: 'bafybeia5lyalmszsemfjzc77cbys62bqrnca4d6ymx7r6rkt6tynede2ja',
       rarity: 'EPIC',
       type: 'ACCESSORY',
     },
     {
       name: 'Golden Bow',
-      description: 'An ornate bow with exceptional range and accuracy',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783933/epic-2_p94shn.png',
+      description: 'Ornate bow with deadly accuracy',
+      imageUrl: 'bafybeidmxdn6rkl7t4woilq7eafmjcho53sbtre5fc3zvbwolg5rukcwry',
       rarity: 'EPIC',
       type: 'WEAPON',
     },
-
-    // Rare Items (Green background)
     {
       name: 'Axe of the Forest Guardian',
-      description: 'A powerful axe that channels the strength of nature',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783929/common-2_ripoiu.png',
+      description: 'Axe powered by forest spirits',
+      imageUrl: 'bafybeicp7bn43335xjiekz6net5t7d27tgtmvtdngfqo5zat3n6pyfjtsy',
       rarity: 'RARE',
       type: 'ACCESSORY',
     },
-
     {
       name: 'Ancient Tome',
-      description: 'A book containing forgotten knowledge and magical spells',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783932/common-5_uhayyg.png',
+      description: 'Grants forgotten arcane spells',
+      imageUrl: 'bafybeibazw7oerfvm7r5psfzts3twxnizvnuop5rixcgltart63cv5s4ua',
       rarity: 'RARE',
       type: 'ACCESSORY',
     },
     {
       name: "Adventurer's Boots",
-      description: 'Sturdy leather boots that increase movement speed',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783932/common-3_ulgdkb.png',
+      description: 'Boots that boost running speed',
+      imageUrl: 'bafybeieq46mwfapvj5a4u2bfyoejtcxt4byotu7dzn5ydk3vy4slu26y3q',
       rarity: 'RARE',
       type: 'ARMOR',
     },
-
     {
       name: 'Forest Dagger',
-      description: 'A swift blade favored by scouts and assassins',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783929/common-4_o1kbpf.png',
+      description: 'Silent blade for forest scouts',
+      imageUrl: 'bafybeif2wv4yk7vs6dqy4zgdtmkwv6z6yqqumkjamfduvvzuazw77fod7u',
       rarity: 'RARE',
       type: 'WEAPON',
     },
     {
       name: "Champion's Sword",
-      description: 'A well-crafted sword that has seen many battles',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783926/common-1_bbasln.png',
+      description: 'Battle-worn sword of victors',
+      imageUrl: 'bafybeiencz75zd3f32bqeahmunnt6d4tjog2dn3panlklemtgekmwwoo2u',
       rarity: 'RARE',
       type: 'WEAPON',
     },
     {
       name: 'Skeleton Key',
-      description: 'A mysterious key that can unlock special chests and doors',
-      imageUrl:
-        'https://res.cloudinary.com/dgkrcxt3p/image/upload/v1751783933/common-6_qako8g.png',
+      description: 'Unlocks ancient hidden doors',
+      imageUrl: 'bafybeie74rgbkybqsh477ewpg4zup6iv7ti2rkvolic6nawkoqcdjnbe3y',
       rarity: 'RARE',
       type: 'ACCESSORY',
     },

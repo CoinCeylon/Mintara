@@ -34,7 +34,10 @@ export default function MarketplacePage() {
 
     try {
       const response = await getNFTMetaData(selectedReward.id);
+
       const metadataResponse = response?.data as MetaDataResponse;
+
+      console.log(metadataResponse, "METADATA RESPONSE");
 
       if (response?.status !== "success" || !metadataResponse) {
         toast.error("Failed to fetch NFT metadata.");
@@ -239,9 +242,7 @@ export default function MarketplacePage() {
                       <div className="flex items-center justify-between mb-3">
                         <Image
                           unoptimized
-                          src={
-                            item.rewardCatalog.imageUrl || "/placeholder.svg"
-                          }
+                          src={`https://gateway.pinata.cloud/ipfs/${item.rewardCatalog.imageUrl}`}
                           alt={item.name}
                           width={200}
                           height={200}
@@ -259,6 +260,7 @@ export default function MarketplacePage() {
                         >
                           {item.rewardCatalog.rarity}
                         </Badge>
+                        <p>{item.rewardCatalog.rarity}</p>
                       </div>
 
                       <p className="text-sm text-green-600 mb-2">

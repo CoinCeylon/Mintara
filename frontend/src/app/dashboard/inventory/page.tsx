@@ -59,7 +59,7 @@ export default function InventoryPage() {
                     <div className="flex items-center justify-between mb-3">
                       <Image
                         unoptimized
-                        src={item.rewardCatalog.imageUrl}
+                        src={`https://gateway.pinata.cloud/ipfs/${item.rewardCatalog.imageUrl}`}
                         alt={item.name}
                         width={200}
                         height={200}

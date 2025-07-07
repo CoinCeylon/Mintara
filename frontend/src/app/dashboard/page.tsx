@@ -177,11 +177,19 @@ export default function DashboardPage() {
             </div>
 
             <div className="flex items-center justify-between mt-4">
-              <Button variant={"default"} className="w-[49%]">
+              <Button
+                variant={"default"}
+                className="w-[49%]"
+                onClick={() => router.push("/dashboard/explorer")}
+              >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Mint Selected NFTs
+                View obtainable rewards
               </Button>
-              <Button variant="default" className="w-[49%]">
+              <Button
+                variant="default"
+                className="w-[49%]"
+                onClick={() => router.push("/dashboard/marketplace")}
+              >
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 View on Marketplace
               </Button>
