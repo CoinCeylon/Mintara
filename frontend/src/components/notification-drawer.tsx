@@ -98,7 +98,7 @@ export function NotificationDrawer() {
 
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerContent>
-          <div className="mx-auto w-full max-w-7xl !text-primary_color">
+          <div className="mx-auto w-full max-w-7xl h-[75vh] !text-primary_color">
             <DrawerHeader>
               <DrawerTitle>Notifications</DrawerTitle>
               <DrawerDescription className="text-primary_color">
@@ -107,7 +107,7 @@ export function NotificationDrawer() {
             </DrawerHeader>
 
             <div className="p-4">
-              <ScrollArea className="h-[60vh]">
+              <ScrollArea className="h-[40vh]">
                 {isLoading ? (
                   <div className="flex items-center justify-center p-4">
                     <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
@@ -123,7 +123,7 @@ export function NotificationDrawer() {
                       <div
                         key={notification.id}
                         className={cn(
-                          "rounded-lg border border-primary_color p-4 transition-colors hover:bg-primary_color/20",
+                          "rounded-lg border border-primary_color p-4  transition-colors hover:bg-primary_color/20",
                           !notification.isRead && "bg-red/50"
                         )}
                         onClick={() => handleMarkAsRead(notification.id)}

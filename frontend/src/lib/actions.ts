@@ -232,3 +232,33 @@ export const getNFTMetaData = async (rewardId: string) => {
     }
   }
 };
+
+export const updateRewardAsMinted = async (rewardId: string) => {
+  const session = await getServerSession(authOptions);
+  try {
+    const response = await axiosPublic.put(
+      `/mint/update-reward-status`,
+      { rewardId },
+      {
+        headers: {
+          Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+          Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+        },
+      }
+    );
+
+    return {
+      status: "success",
+      data: response.data,
+      message: response.data.message as string,
+    } as Status;
+  } catch (error) {
+    console.error(error);
+    if (isAxiosError(error)) {
+      return {
+        status: "error",
+        message: error.response?.data.message,
+      } as Status;
+    }
+  }
+};

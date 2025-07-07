@@ -22,6 +22,9 @@ import { useRouter } from "next/navigation";
 import { useWallet } from "@meshsdk/react";
 import { useClipboard } from "use-clipboard-copy";
 import { Input } from "@/components/ui/input";
+import { useQuery } from "@tanstack/react-query";
+import { Reward, Status } from "@/lib/types";
+import { getAllAvailableRewardByUserId } from "@/lib/actions";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -29,6 +32,10 @@ export default function DashboardPage() {
   const router = useRouter();
   const { wallet, connected, name, connecting, connect, disconnect } =
     useWallet();
+  const { data, isLoading, refetch } = useQuery<Status | undefined>({
+    queryKey: ["available-rewards", session?.user.id],
+    queryFn: () => getAllAvailableRewardByUserId(session?.user.id as string),
+  });
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>("");
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -60,7 +67,12 @@ export default function DashboardPage() {
       });
     }
   }, [connected, wallet]);
-
+  const availableRewards = (data?.data as Reward[]) ?? [];
+  console.log(availableRewards);
+  const mintedRewards = availableRewards.map(
+    (reward) => reward.status === "MINTED"
+  );
+  console.log("MINTED REWARDS ", mintedRewards);
   if (!session) {
     router.push("/sign-in");
     return;
@@ -132,7 +144,9 @@ export default function DashboardPage() {
               </div>
               <div className="text-center p-3  rounded-lg border border-green-500/20">
                 <Trophy className="w-6 h-6 mx-auto mb-1 text-green-400" />
-                <div className="text-lg font-bold text-green-400">23</div>
+                <div className="text-lg font-bold text-green-400">
+                  {mintedRewards.length || 0}
+                </div>
                 <div className="text-xs text-green-600">NFTs Owned</div>
               </div>
             </div>
@@ -171,7 +185,7 @@ export default function DashboardPage() {
                 <div className="text-xs text-green-600">ADA Balance</div>
               </div>
               <div className="text-center p-3 rounded-lg border border-green-500/20">
-                <div className="text-lg font-bold text-green-400">8</div>
+                <div className="text-lg font-bold text-green-400">{8}</div>
                 <div className="text-xs text-green-600">NFTs</div>
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function Loader({
     >
       <div className="flex flex-col items-center space-y-2">
         <div
-          className={`animate-spin rounded-full ${sizeClasses[size]} border-t-transparent border-primary`}
+          className={`animate-spin rounded-full ${sizeClasses[size]} border-t-transparent border-primary_color`}
         />
         <p className="text-sm font-medium">{text}</p>
       </div>
