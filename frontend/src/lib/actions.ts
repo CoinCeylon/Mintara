@@ -204,3 +204,31 @@ export async function markAllNotificationsAsRead() {
     throw new Error("Failed to mark all notifications as read");
   }
 }
+
+//mint rewards
+export const getNFTMetaData = async (rewardId: string) => {
+  const session = await getServerSession(authOptions);
+  try {
+    const response = await axiosPublic.get(
+      `/mint/get-config?rewardId=${rewardId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${session?.tokenInfo.accessToken}`,
+          Cookie: `refreshToken=${session?.tokenInfo.refreshToken}`,
+        },
+      }
+    );
+    return {
+      status: "success",
+      data: response.data,
+      message: response.data.message as string,
+    } as Status;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      return {
+        status: "error",
+        message: error.response?.data.message,
+      } as Status;
+    }
+  }
+};

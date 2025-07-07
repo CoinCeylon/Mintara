@@ -34,7 +34,7 @@ export default function RegisterForm() {
 
   useEffect(() => {
     if (connected && wallet) {
-      wallet.getRewardAddresses().then((addresses) => {
+      wallet.getUsedAddresses().then((addresses) => {
         if (addresses.length > 0) {
           setWalletAddress(addresses[0]);
         }
@@ -132,13 +132,13 @@ export default function RegisterForm() {
             variant={"default"}
             disabled={connected}
             onClick={() => {
-              connect("lace");
+              connect("eternl");
               if (error) {
                 toast.error("Failed to connect wallet. Please try again.");
               }
             }}
           >
-            {connected ? "Connected" : "Connect Lace Wallet"}
+            {connected ? "Connected" : "Connect Wallet"}
           </Button>
           {connected && (
             <BorderedWrapper wrapperClassName="w-full" label="Wallet Info">
