@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b444ycutci8b4"]
+
+[ext_resource type="PackedScene" uid="uid://cs0dyw0f6370i" path="res://Scenes/Menu/input_button.tscn" id="1_fndgu"]
+[ext_resource type="FontFile" uid="uid://cqltwxmkxwcix" path="res://Assets/Menu/Game Paused DEMO.otf" id="1_rffbh"]
+[ext_resource type="Script" path="res://Scripts/Menu/settings.gd" id="1_rxruh"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxruh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = -253.5
+offset_right = 361.0
+offset_bottom = 253.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 504.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_fndgu")]
+layout_mode = 2
+
+[node name="Save&Close" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_rffbh")
+theme_override_font_sizes/font_size = 30
+text = "Save and Close"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Save&Close" to="." method="_on_save_close_pressed"]
