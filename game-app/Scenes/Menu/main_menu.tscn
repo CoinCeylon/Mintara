@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://cov0idq8fx4d8"]
+
+[ext_resource type="Texture2D" uid="uid://bjlsssvy8ebt4" path="res://Assets/Menu/MainMenu.png" id="1_2s6ja"]
+[ext_resource type="Script" path="res://Scripts/Menu/main_menu.gd" id="1_egko7"]
+[ext_resource type="FontFile" uid="uid://cqltwxmkxwcix" path="res://Assets/Menu/Game Paused DEMO.otf" id="2_bx54x"]
+[ext_resource type="PackedScene" uid="uid://b444ycutci8b4" path="res://Scenes/Menu/settings.tscn" id="4_uqxjc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwoxm"]
+texture = ExtResource("1_2s6ja")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yue4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sc61f"]
+bg_color = Color(0.811765, 0.811765, 0.811765, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kencx"]
+bg_color = Color(0.568627, 0.568627, 0.568627, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q01l5"]
+bg_color = Color(0.996078, 0.996078, 0.996078, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_offset = Vector2(0, 3.41)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egko7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rwoxm")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -393.0
+offset_top = 88.0
+offset_right = 393.0
+offset_bottom = 197.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="IDLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bx54x")
+theme_override_font_sizes/font_size = 40
+text = "Player ID: "
+
+[node name="IDInput" type="LineEdit" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Enter yout player id here....."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 6.0
+offset_right = 200.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bx54x")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yue4e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sc61f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kencx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q01l5")
+text = "Play"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bx54x")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yue4e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sc61f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kencx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q01l5")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bx54x")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yue4e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sc61f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kencx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q01l5")
+text = "Quit game"
+
+[node name="SettingsGUI" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="SettingsGUI" instance=ExtResource("4_uqxjc")]
+visible = false
+
+[connection signal="text_changed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/IDInput" to="." method="_on_id_input_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

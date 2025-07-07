@@ -31,6 +31,11 @@ func _ready() -> void:
 	health_bar.value = health
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		goto_main_menu()
+
+
 func _physics_process(delta: float) -> void:
 	if current_state == hero_state.DEAD:
 		dead()
@@ -152,6 +157,10 @@ func drown(delta: float):
 	if health <= 0:
 		health = 0
 		current_state = hero_state.DEAD
+
+
+func goto_main_menu() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
 
 
 func restart():

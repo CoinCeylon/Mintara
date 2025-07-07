@@ -1,6 +1,9 @@
-res://Assets/Day_night_cycle/DayNightCycle.tres::dd90fed8c9efb9202fc6211d109c1815::1751805813::res://.godot/exported/133200997/export-76e5bd663ce3086088876ecd0c3a51b3-DayNightCycle.res
-res://Scenes/Enemies/slime.tscn::507d26f9bb9d1544656c3e47aad8d9a7::1751808524::res://.godot/exported/133200997/export-19a7583fc495937470471be2d8179d9e-slime.scn
-res://Scenes/Interactables/crate.tscn::ce049e2ca6b1f900cd4746923dcb84eb::1751808524::res://.godot/exported/133200997/export-3cbd0a27465d4962593b81c7dfd54a3b-crate.scn
-res://Scenes/Intro/intro.tscn::5d4cd2d9e515c4465fc0eee747c11c3d::1751808524::res://.godot/exported/133200997/export-5993a849e90e372dab81598a466798ee-intro.scn
-res://Scenes/Levels/main_level.tscn::768d4581bb5de693d6e3c8e0fae0bb58::1751808524::res://.godot/exported/133200997/export-0606d60a3640e61e9b6622b738bbc452-main_level.scn
-res://Scenes/ProgressBars/health_bar.tscn::7daec00a8301db4d0c7b9fe1a2c2bbed::1751808525::res://.godot/exported/133200997/export-f46ee1fefd876c3800f0d4b6f53f2e74-health_bar.scn
+res://Assets/Day_night_cycle/DayNightCycle.tres::dd90fed8c9efb9202fc6211d109c1815::1751925225::res://.godot/exported/133200997/export-76e5bd663ce3086088876ecd0c3a51b3-DayNightCycle.res
+res://Scenes/Enemies/slime.tscn::507d26f9bb9d1544656c3e47aad8d9a7::1751927827::res://.godot/exported/133200997/export-19a7583fc495937470471be2d8179d9e-slime.scn
+res://Scenes/Interactables/crate.tscn::ce049e2ca6b1f900cd4746923dcb84eb::1751927827::res://.godot/exported/133200997/export-3cbd0a27465d4962593b81c7dfd54a3b-crate.scn
+res://Scenes/Intro/intro.tscn::5d4cd2d9e515c4465fc0eee747c11c3d::1751927827::res://.godot/exported/133200997/export-5993a849e90e372dab81598a466798ee-intro.scn
+res://Scenes/Levels/main_level.tscn::768d4581bb5de693d6e3c8e0fae0bb58::1751927827::res://.godot/exported/133200997/export-0606d60a3640e61e9b6622b738bbc452-main_level.scn
+res://Scenes/ProgressBars/health_bar.tscn::7daec00a8301db4d0c7b9fe1a2c2bbed::1751927827::res://.godot/exported/133200997/export-f46ee1fefd876c3800f0d4b6f53f2e74-health_bar.scn
+res://Scenes/Menu/input_button.tscn::ae17a1e628be1566b618dd3d8c826e45::1751927827::res://.godot/exported/133200997/export-987055282e496fa550448443d3c7daa5-input_button.scn
+res://Scenes/Menu/main_menu.tscn::9fa3ad25055d09e540dccb8cb84c5a4e::1751927875::res://.godot/exported/133200997/export-4a1affdcdd35a1a6cb5ee07c6d0a246e-main_menu.scn
+res://Scenes/Menu/settings.tscn::2986372bdb297470f95f2777d045ad6c::1751927827::res://.godot/exported/133200997/export-18140a06d1f1c047061c1ff613760fa5-settings.scn
