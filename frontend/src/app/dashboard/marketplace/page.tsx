@@ -36,6 +36,7 @@ export default function MarketplacePage() {
 
     setIsMinting(true);
     try {
+      // Fetch NFT metadata
       const response = await getNFTMetaData(selectedReward.id);
       const metadataResponse = response?.data as MetaDataResponse;
 
@@ -44,6 +45,7 @@ export default function MarketplacePage() {
         return;
       }
 
+      // Connect wallet
       const wallet = await BrowserWallet.enable("eternl");
       console.log("Wallet connected successfully");
 
