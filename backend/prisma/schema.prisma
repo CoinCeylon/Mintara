@@ -18,7 +18,6 @@ model User {
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
   rewards      Reward[]
-  nfts         NFT[]
   Notification Notification[]
 }
 
@@ -42,18 +41,6 @@ model Reward {
 
   user          User          @relation(fields: [userId], references: [id])
   rewardCatalog RewardCatalog @relation(fields: [rewardCatalogId], references: [id])
-}
-
-model NFT {
-  id          String   @id @default(uuid())
-  userId      String
-  name        String
-  policyId    String
-  assetName   String
-  metadataUrl String
-  mintedAt    DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id])
 }
 
 model Notification {

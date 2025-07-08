@@ -55,10 +55,7 @@ export default function RegisterForm() {
   const router = useRouter();
   const onSubmit = async (data: FieldValues) => {
     console.log(data, "SIGN UP DATA");
-    if (!connected) {
-      toast.error("Please connect your wallet first.");
-      return;
-    }
+
     const response = await signUpAction({
       username: data.username,
       email: data.email,

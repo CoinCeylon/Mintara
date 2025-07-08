@@ -1,4 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
+<<<<<<< HEAD
+::res://::1751925192
+export_presets.cfg::TextFile::-1::1751808545::0::1::::<><>::
+icon.svg::CompressedTexture2D::804246031497565365::1751718495::1751718555::1::::<><>::
+package-lock.json::JSON::-1::1751915516::0::1::::<><>::
+README.md::TextFile::-1::1751718495::0::1::::<><>::
+::res://Assets/::1751913174
+::res://Assets/Background/::1751718555
+spritesheet.png::CompressedTexture2D::5797646620423013637::1751718495::1751718555::1::::<><>::
+::res://Assets/Day_night_cycle/::1751906012
+DayNightCycle.tres::GradientTexture1D::3119443190732880559::1751906012::0::1::::<><>::
+=======
 ::res://::1751930443
 export_presets.cfg::TextFile::-1::1751927902::0::1::::<><>::
 icon.svg::CompressedTexture2D::804246031497565365::1751718495::1751718555::1::::<><>::
@@ -9,11 +21,16 @@ README.md::TextFile::-1::1751930051::0::1::::<><>::
 spritesheet.png::CompressedTexture2D::5797646620423013637::1751718495::1751718555::1::::<><>::
 ::res://Assets/Day_night_cycle/::1751925225
 DayNightCycle.tres::GradientTexture1D::3119443190732880559::1751925225::0::1::::<><>::
+>>>>>>> f5b4414b9e438a3683330fd9710fd8b1248250dd
 ::res://Assets/Enemies/::1751786466
 DestroySmoke.png::CompressedTexture2D::6587567506597701085::1751783603::1751783678::1::::<><>::
 Shadow.png::CompressedTexture2D::1802756134935540636::1742276849::1751786466::1::::<><>::
 Slime.png::CompressedTexture2D::4497878757606576798::1751783603::1751783678::1::::<><>::
+<<<<<<< HEAD
+::res://Assets/Hero/::1751913350
+=======
 ::res://Assets/Hero/::1751929987
+>>>>>>> f5b4414b9e438a3683330fd9710fd8b1248250dd
 Player-rpg_hammer.png::CompressedTexture2D::4043706299735742447::1751735253::1751735306::1::::<><>::
 Shadow.png::CompressedTexture2D::8699322630551587609::1742276849::1751786466::1::::<><>::
 ::res://Assets/Interactables/::1751786660
@@ -21,6 +38,42 @@ Crate-animated.png::CompressedTexture2D::7832911582214703895::1751719726::175171
 Shadow.png::CompressedTexture2D::566484524797323116::1742276849::1751786660::1::::<><>::
 ::res://Assets/Intro/::1751788806
 Intro.ogv::VideoStreamTheora::-1::1751788771::0::1::::<><>::
+<<<<<<< HEAD
+::res://Assets/Menu/::1751914558
+Game Paused DEMO.otf::FontFile::5919765158278511887::1744959893::1751914558::1::::<><>::
+MainMenu.png::CompressedTexture2D::3041954460886038167::1751913760::1751913796::1::::<><>::
+::res://Assets/ProgressBars/::1751784145
+healthbarProgress.png::CompressedTexture2D::8276703771585158007::1742431423::1751784145::1::::<><>::
+healthbarUnder.png::CompressedTexture2D::7616393749002011335::1742431423::1751783851::1::::<><>::
+::res://Builds/::1751808545
+::res://Scenes/::1751913148
+::res://Scenes/Enemies/::1751925089
+slime.tscn::PackedScene::1164901607065167493::1751925089::0::1::::<><>::uid://b5c2n2lalxruk::::res://Assets/Enemies/Slime.png<>res://Scripts/Enemies/slime.gd<>uid://c04cjlgfhb078::::res://Assets/Enemies/DestroySmoke.png<>uid://0xjeopwyftiy::::res://Assets/Enemies/Shadow.png
+::res://Scenes/Interactables/::1751925089
+crate.tscn::PackedScene::6558584887455337838::1751925089::0::1::::<><>::res://Scripts/Interactables/crate.gd<>uid://djuk56hlwk5cl::::res://Assets/Interactables/Crate-animated.png<>uid://icn6gp43sieu::::res://Assets/Interactables/Shadow.png
+::res://Scenes/Intro/::1751925089
+intro.tscn::PackedScene::9158147694549871150::1751925089::0::1::::<><>::res://Assets/Intro/Intro.ogv<>res://Scripts/Intro/intro.gd
+::res://Scenes/Levels/::1751925089
+day_night_cycle.gd::GDScript::-1::1751796729::0::1::::<>CanvasModulate<>::
+main_level.tscn::PackedScene::1578333046941693002::1751925089::0::1::::<><>::res://Scripts/hero.gd<>uid://bxu2itjgiosqx::::res://Assets/Hero/Player-rpg_hammer.png<>uid://dv7atqc5y4lcb::::res://Assets/Hero/Shadow.png<>uid://evjd3vqknny2::::res://Scenes/ProgressBars/health_bar.tscn<>uid://c0pa61ylkuy8m::::res://Scenes/Interactables/crate.tscn<>uid://couonmcjswrvh::::res://Assets/Background/spritesheet.png<>uid://quj02yrlb23j::::res://Scenes/Enemies/slime.tscn<>res://Scenes/Levels/day_night_cycle.gd<>uid://bkpc1kjm4t2xn::::res://Assets/Day_night_cycle/DayNightCycle.tres
+::res://Scenes/Menu/::1751925181
+input_button.tscn::PackedScene::6088076201157851786::1751925089::0::1::::<><>::uid://cqltwxmkxwcix::::res://Assets/Menu/Game Paused DEMO.otf
+main_menu.tscn::PackedScene::5800369506118220963::1751925145::0::1::::<><>::uid://bjlsssvy8ebt4::::res://Assets/Menu/MainMenu.png<>res://Scripts/Menu/main_menu.gd<>uid://cqltwxmkxwcix::::res://Assets/Menu/Game Paused DEMO.otf<>uid://b444ycutci8b4::::res://Scenes/Menu/settings.tscn
+settings.tscn::PackedScene::4483567892716805635::1751925181::0::1::::<><>::uid://cs0dyw0f6370i::::res://Scenes/Menu/input_button.tscn<>uid://cqltwxmkxwcix::::res://Assets/Menu/Game Paused DEMO.otf<>res://Scripts/Menu/settings.gd
+::res://Scenes/ProgressBars/::1751925089
+health_bar.tscn::PackedScene::324660621539551431::1751925089::0::1::::<><>::uid://dgro5lqb5jqjn::::res://Assets/ProgressBars/healthbarUnder.png<>uid://dp6kdp1ff3jad::::res://Assets/ProgressBars/healthbarProgress.png
+::res://Scripts/::1751921408
+hero.gd::GDScript::-1::1751799795::0::1::::<>CharacterBody2D<>::
+::res://Scripts/Enemies/::1751783603
+slime.gd::GDScript::-1::1751783603::0::1::::<>CharacterBody2D<>::
+::res://Scripts/Interactables/::1751783603
+crate.gd::GDScript::-1::1751915588::0::1::::<>StaticBody2D<>::
+::res://Scripts/Intro/::1751788888
+intro.gd::GDScript::-1::1751921481::0::1::::<>VideoStreamPlayer<>::
+::res://Scripts/Menu/::1751925166
+main_menu.gd::GDScript::-1::1751925083::0::1::::<>Control<>::
+settings.gd::GDScript::-1::1751925174::0::1::::<>Control<>::
+=======
 ::res://Assets/Menu/::1751929987
 Game Paused DEMO.otf::FontFile::5919765158278511887::1751929987::1751930444::1::::<><>::
 MainMenu.png::CompressedTexture2D::3041954460886038167::1751929987::1751930445::1::::<><>::
@@ -55,3 +108,4 @@ intro.gd::GDScript::-1::1751929988::0::1::::<>VideoStreamPlayer<>::
 ::res://Scripts/Menu/::1751929988
 main_menu.gd::GDScript::-1::1751929988::0::1::::<>Control<>::
 settings.gd::GDScript::-1::1751929988::0::1::::<>Control<>::
+>>>>>>> f5b4414b9e438a3683330fd9710fd8b1248250dd

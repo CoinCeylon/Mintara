@@ -1,15 +1,25 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class MintService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prismaService: PrismaService) {}
 
   async getMintConfig(rewardId: string) {
-    const reward = await this.prisma.reward.findUnique({
+    const reward = await this.prismaService.reward.findUnique({
       where: { id: rewardId },
       include: { rewardCatalog: true },
     });
+
+    if (reward.status === 'MINTED') {
+      throw new BadRequestException(
+        'You have already minted this reward as a NFT',
+      );
+    }
 
     if (!reward) throw new NotFoundException('Reward not found');
 
@@ -36,5 +46,33 @@ export class MintService {
       metadata,
       compiledScript,
     };
+  }
+
+  async updateRewardStatusToMinted(rewardId: string) {
+    const isRewardExists = await this.prismaService.reward.findFirst({
+      where: {
+        id: rewardId,
+      },
+    });
+
+    if (!isRewardExists) {
+      throw new BadRequestException('No such reward exists');
+    }
+
+    await this.prismaService.reward.update({
+      where: { id: rewardId },
+      data: { status: 'MINTED' },
+    });
+
+    return { message: 'Reward status updated to MINTED' };
+  }
+
+  async getMintedRewards(userId: string) {
+    return await this.prismaService.reward.findMany({
+      where: {
+        userId: userId,
+        status: 'MINTED',
+      },
+    });
   }
 }
