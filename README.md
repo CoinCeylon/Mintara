@@ -70,11 +70,41 @@ A fantasy-themed 2D dungeon crawler where players explore dungeons, fight enemie
 
 **How to Play:**
 
-1. Download and extract the repository
-2. Navigate to the `Builds/` folder
-3. Run `MINTARA.exe`
+1. Download and extract the repository.
+2. Go to the `Builds/` folder.
+3. Run `MINTARA.exe`.
 
 > ⚠️ **Note:** To claim in-game rewards as NFTs, the backend server must be running.
+
+> 🧑‍💻 **Player ID Requirement:** Before playing, open the frontend Mintara registration page, register an account, and obtain your Player ID. Paste this Player ID into the Main Menu of the game to enable NFT reward claiming.
+
+### 🧠 Game Logic
+
+- 🧱 Destroy crates to receive NFT-based rewards.
+- 🔨 Only the hammer can destroy crates.
+- 🧊 Different crates have different health; larger ones require multiple hits.
+- 🐉 Slime enemies reduce your health if touched.
+- 🗡️ Only the sword can kill slime enemies.
+- 🧬 Slimes have different health; larger slimes need multiple sword hits.
+- 💀 If you die, the game will automatically restart from the beginning.
+- 🌊 Stepping into water will instantly kill you.
+- ⚙️ Key bindings can be customized in the Settings menu.
+- ❌ To quit the game, press ESC to return to the main menu, then press Quit Game.
+
+### 🎮 Default Controls
+
+| Action          | Key   |
+| --------------- | ----- |
+| Move Up         | W     |
+| Move Down       | S     |
+| Move Left       | A     |
+| Move Right      | D     |
+| Jump            | Space |
+| Swing Sword     | C     |
+| Swing Hammer    | Z     |
+| Pause/Main Menu | ESC   |
+
+You can always head back to the main menu during gameplay by pressing the ESC key.
 
 ### ⚙️ Backend API
 
@@ -147,14 +177,13 @@ A custom minting policy for NFTs on the Cardano blockchain that ensures secure a
 
 ## 🚀 Quick Start
 
-1. **Create & register:** Navigate to the frontend web app and register by providing your Cardano wallet and credentials.
+1. **Create & register:** Navigate to the frontend web app and register by providing your Cardano wallet and credentials. Make sure your backend server is running.
 2. **Find your user ID:** After logging in, your dashboard will display your unique user ID. You will need this for the game.
 3. **Start the game:** When you open the game, it will prompt you for an ID—enter the user ID from your dashboard.
 
 ### Prerequisites
 
 - Node.js 18+
-- Git
 - Cardano wallet (Eternl)
 - Godot Engine 4.3 (for game development only)
 
