@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs0dyw0f6370i"]
+
+[ext_resource type="FontFile" uid="uid://cqltwxmkxwcix" path="res://Assets/Menu/Game Paused DEMO.otf" id="1_pa3gu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5d0i"]
+bg_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcfhe"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[node name="InputButton" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_a5d0i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a5d0i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kcfhe")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_pa3gu")
+theme_override_font_sizes/font_size = 25
+text = "INPUT NAME"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_pa3gu")
+theme_override_font_sizes/font_size = 25
+text = "INPUT KEY"
+vertical_alignment = 1

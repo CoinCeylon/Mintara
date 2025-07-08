@@ -28,13 +28,32 @@ func destroy() -> void:
 	queue_free()
 
 
+func load_player_id() -> String:
+	var config = ConfigFile.new()
+	if config.load("user://player_settings.cfg") == OK:
+		if config.has_section_key("player", "id"):
+			return config.get_value("player", "id", "")
+	return ""
+
+
 func send_claim_request() -> void:
 	var request = $HTTPRequest
 	var url = "http://localhost:3001/api/rewards/claim-random-reward"
 	var headers = ["Content-Type: application/json"]
+	# var body = JSON.stringify({
+	# 	# "userId": "9887e122-43d7-4161-8c22-a40b2180e091"
+	# 	"userId": "bd796c58-4184-4d07-b28e-f53baafd3dd9"
+	# })
+	var player_id = load_player_id()
+
+	if player_id == "":
+		print("No player ID found.")
+		return
+
 	var body = JSON.stringify({
-		"userId": "9887e122-43d7-4161-8c22-a40b2180e091"
+		"userId": player_id
 	})
+
 
 	var error = request.request(url, headers, HTTPClient.METHOD_POST, body)
 
