@@ -193,6 +193,7 @@ A custom minting policy for NFTs on the Cardano blockchain that ensures secure a
 - MeshJS (for Cardano wallet integration)
 - Godot Engine 4.3 (for game development only)
 - **Make sure you have installed the [Eternl wallet browser extension for Chrome](https://chromewebstore.google.com/detail/eternl/kmhcihpebfmpgmihbkipmjlmmioameka)**
+- **Decentralized storage is handled via [Pinata Cloud](https://www.pinata.cloud/), where all NFT images are uploaded**
 
 ### 1. Clone the Repository
 
