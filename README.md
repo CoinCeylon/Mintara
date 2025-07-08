@@ -1,19 +1,22 @@
 <div align="center">
-  <img src="frontend/public/logo.png" alt="Mintara Logo" width="500" height="100">
+  <img src="frontend/public/logo.png" alt="Mintara Logo" width="500" height="130">
 </div>
-
-## 🎥 Demo
-
-Watch a demo of Mintara in action on YouTube:  
-[https://youtu.be/230H7Mb3koU?si=Zi2uL07qUl7Uje9n](https://youtu.be/230H7Mb3koU?si=Zi2uL07qUl7Uje9n)
-
-A fantasy-themed 2D dungeon crawler game with blockchain-powered NFT rewards on Cardano.
 
 [![NestJS](https://img.shields.io/badge/Backend-NestJS-red.svg)](https://nestjs.com/)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js-black.svg)](https://nextjs.org/)
 [![Godot](https://img.shields.io/badge/Game-Godot%204.3-478CBF.svg)](https://godotengine.org/)
 [![Cardano](https://img.shields.io/badge/Blockchain-Cardano-0033AD.svg)](https://cardano.org/)
 [![Aiken](https://img.shields.io/badge/Smart%20Contract-Aiken-FF6B6B.svg)](https://aiken-lang.org/)
+[![MeshJS](https://img.shields.io/badge/Powered%20by-Mesh-00B386.svg)](https://meshjs.dev/)
+
+## 🎥 Demo
+
+Watch a demo of Mintara in action on YouTube:  
+[https://youtu.be/230H7Mb3koU?si=Zi2uL07qUl7Uje9n](https://youtu.be/230H7Mb3koU?si=Zi2uL07qUl7Uje9n)
+
+# 🧿 MINTARA
+
+A fantasy-themed 2D dungeon crawler game with blockchain-powered NFT rewards on Cardano.
 
 ## 📋 Table of Contents
 
@@ -135,8 +138,9 @@ A robust REST API that handles game logic, user authentication, and blockchain i
 **Location:** `frontend/`  
 **Technology:** Next.js (React + TypeScript)  
 **Styling:** Tailwind CSS + shadcn/ui
+**Cardano Wallet Integration:** MeshJS
 
-A modern web application that provides users with a comprehensive interface to manage their Mintara account, view NFT collections, and interact with the gaming ecosystem.
+A modern web application that provides users with a comprehensive interface to manage their Mintara account, view NFT collections, and interact with the gaming ecosystem. MeshJS is used for seamless Cardano wallet integration and NFT operations.
 
 **Key Features:**
 
@@ -145,6 +149,7 @@ A modern web application that provides users with a comprehensive interface to m
 - Game statistics and achievements
 - Responsive design for all devices
 - Real-time updates and notifications
+- **Cardano wallet connection and NFT minting via MeshJS**
 
 ### 🔗 Smart Contract
 
@@ -185,6 +190,7 @@ A custom minting policy for NFTs on the Cardano blockchain that ensures secure a
 
 - Node.js 18+
 - Cardano wallet (Eternl)
+- MeshJS (for Cardano wallet integration)
 - Godot Engine 4.3 (for game development only)
 
 ### 1. Clone the Repository
