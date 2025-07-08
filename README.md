@@ -307,18 +307,6 @@ During development, we created our own Cardano policy scripts to mint and burn N
 - Ensure all components work together
 - Test the complete flow from game to blockchain
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔗 Links
-
-- [NestJS Documentation](https://nestjs.com/)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Godot Engine](https://godotengine.org/)
-- [Cardano Documentation](https://docs.cardano.org/)
-- [Aiken Language](https://aiken-lang.org/)
-
 ---
 
 **Built with ❤️ for the Cardano community**
